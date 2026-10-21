@@ -7,19 +7,19 @@
     <meta name="description" content="Como o Brain Notes trata seus dados, incluindo os dados do Google Calendar." />
     <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-    <link rel="preconnect" href="https://api.fontshare.com" />
-    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
-    <link href="https://api.fontshare.com/v2/css?f[]=erode@400,500,600&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/site.css" />
-    <script src="assets/site.js"></script>
+    <script src="assets/site.js" defer></script>
   </head>
   <body>
     <header class="bar frame">
-      <a class="wordmark" href="./"><img src="assets/icon.svg" alt="" width="26" height="26" />Brain Notes</a>
+      <a class="wordmark" href="./"><img src="assets/icon.svg" alt="" width="28" height="28" />Brain Notes</a>
       <nav aria-label="Principal">
+        <a href="index.html#brain">Brain AI</a>
+        <a href="index.html#agentes">Agentes</a>
         <a href="docs.html">Documentação</a>
-        <a href="terms.html">Termos</a>
-        <a href="privacy.html" aria-current="page">Privacidade</a>
       </nav>
       <a class="button button--small" href="index.html#licenca">Solicitar licença</a>
     </header>
@@ -198,24 +198,15 @@
       </div>
     </main>
 
-    <footer class="footer footer--compact frame">
-      <div class="footer-top">
-        <div class="notes">
-          <a class="wordmark" href="./">Brain Notes</a>
-          <p>Notas, reuniões e ações em Markdown, no seu repositório.</p>
-        </div>
-        <a class="link" href="#">Voltar ao topo</a>
-      </div>
-      <h2 class="contact"><a href="mailto:bruno.dias.donnici@gmail.com">bruno.dias.donnici@gmail.com</a></h2>
-      <div class="footer-meta">
-        <nav aria-label="Rodapé">
-          <a class="link" href="docs.html">Documentação</a>
-          <a class="link" href="terms.html">Termos de Uso</a>
-          <a class="link" href="privacy.html">Política de Privacidade</a>
-        </nav>
-        <span class="center"></span>
-        <span class="right">© 2026 Bruno Dias Donnici. Todos os direitos reservados.</span>
-      </div>
+    <footer class="quiet frame">
+      <span>Brain Notes · notas em Markdown</span>
+      <nav aria-label="Rodapé">
+        <a href="docs.html">Documentação</a>
+        <a href="terms.html">Termos</a>
+        <a href="privacy.html">Privacidade</a>
+        <a href="mailto:bruno.dias.donnici@gmail.com">Contato</a>
+      </nav>
+      <span class="right">© 2026 Bruno Dias Donnici</span>
     </footer>
   </body>
 </html>

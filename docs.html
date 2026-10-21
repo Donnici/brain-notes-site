@@ -4,22 +4,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Documentação Brain Notes</title>
-    <meta name="description" content="Como instalar e usar o Brain Notes: notas, histórico, reuniões, agenda, ações e Brain AI." />
+    <meta name="description" content="Como instalar e usar o Brain Notes: notas, histórico, reuniões, agenda, ações, Brain AI e Agentes." />
     <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-    <link rel="preconnect" href="https://api.fontshare.com" />
-    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
-    <link href="https://api.fontshare.com/v2/css?f[]=erode@400,500,600&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/site.css" />
-    <script src="assets/site.js"></script>
+    <script src="assets/site.js" defer></script>
   </head>
   <body>
     <header class="bar frame">
-      <a class="wordmark" href="./"><img src="assets/icon.svg" alt="" width="26" height="26" />Brain Notes</a>
+      <a class="wordmark" href="./"><img src="assets/icon.svg" alt="" width="28" height="28" />Brain Notes</a>
       <nav aria-label="Principal">
+        <a href="index.html#brain">Brain AI</a>
+        <a href="index.html#agentes">Agentes</a>
         <a href="docs.html" aria-current="page">Documentação</a>
-        <a href="terms.html">Termos</a>
-        <a href="privacy.html">Privacidade</a>
       </nav>
       <a class="button button--small" href="index.html#licenca">Solicitar licença</a>
     </header>
@@ -27,7 +27,7 @@
     <main>
       <div class="doc-head frame">
         <h1>Como usar o Brain Notes</h1>
-        <p>Instalação, notas, histórico, reuniões, agenda, ações e Brain AI, passo a passo.</p>
+        <p>Instalação, notas, reuniões, ações, Brain AI e Agentes, passo a passo.</p>
       </div>
 
       <div class="doc grid frame">
@@ -91,8 +91,9 @@
 
           <h2 id="reunioes">Reuniões</h2>
           <p>
-            Quando uma chamada começa, o Brain Notes <strong>pergunta</strong> se deve gravar — ele nunca grava sozinho. A gravação capta
-            o microfone e o áudio do sistema e pode ser pausada.
+            O botão <strong>Notetaker</strong>, na barra do topo, abre a janela de gravação. Quando uma chamada começa, o Brain Notes
+            <strong>pergunta</strong> se deve gravar — ele nunca grava sozinho. A gravação capta o microfone e o áudio do sistema e pode
+            ser pausada; enquanto ela roda, o mesmo botão traz a janela de volta.
           </p>
           <ul>
             <li>Transcrição, separação de falantes e resumo rodam <strong>no seu computador</strong>. Os modelos são baixados uma vez.</li>
@@ -134,21 +135,53 @@
 
           <h2 id="brain-ai">Brain AI</h2>
           <p>
-            A Brain AI é um chat sobre o seu repositório de notas. Escolha o contexto — o repositório inteiro, uma pasta ou uma nota — e
-            pergunte. As respostas citam as notas usadas.
+            A Brain AI é a tela inicial do app: um chat sobre o seu repositório de notas, com as próximas reuniões da agenda e as
+            reuniões recentes logo acima. Você também chega a ela pelo botão <em>Perguntar à Brain AI</em> de qualquer nota.
           </p>
+          <h3>Perguntar</h3>
           <ul>
-            <li>Usa o provedor de IA que <strong>você</strong> conecta com a sua própria conta. O Brain Notes não guarda essa credencial.</li>
-            <li>Conteúdo só é enviado quando você manda uma mensagem.</li>
-            <li>Notas novas vão para a pasta <code>inbox/</code>. Editar uma nota existente sempre pede sua permissão.</li>
-            <li>A Brain AI nunca grava nem sincroniza o histórico: isso continua sendo decisão sua.</li>
+            <li>Escolha o contexto antes de perguntar: <strong>todo o repositório</strong>, uma pasta ou uma nota.</li>
+            <li>As respostas citam as notas usadas. Clicar na citação abre a nota na linha citada.</li>
+            <li>As ferramentas que a Brain AI usou para procurar ficam recolhidas na resposta; abra para ver o que foi lido.</li>
+            <li>Quando a resposta não está nas notas, ela diz isso primeiro, e marca o que veio de fora.</li>
+            <li>Digite <kbd>/</kbd> no campo da mensagem para usar uma skill, como rascunhar um projeto ou escrever um e-mail de follow-up.</li>
           </ul>
+          <h3>Escrever e editar</h3>
+          <ul>
+            <li>Notas novas criadas pela Brain AI vão para a pasta <code>inbox/</code>.</li>
+            <li>Editar uma nota existente sempre pede sua permissão, com a mudança à vista. Você pode negar com um motivo.</li>
+            <li>A Brain AI nunca sincroniza o histórico: gravar e enviar continua sendo decisão sua.</li>
+          </ul>
+          <h3>Conversas</h3>
+          <p>
+            As conversas ficam na tela inicial e podem ser retomadas ou arquivadas. Elas são guardadas em arquivos locais do app, no seu
+            computador.
+          </p>
+          <div class="note"><p>A Brain AI usa o provedor de IA que <strong>você</strong> conecta com a sua própria conta. O conteúdo só é enviado quando você manda uma mensagem, e o Brain Notes não guarda essa credencial.</p></div>
 
           <h2 id="agentes">Agentes</h2>
           <p>
-            No desktop, a área de Agentes roda vários agentes de IA em paralelo, cada um num projeto seu, com conversas, pedidos de
-            permissão por ferramenta, arquivos alterados com diff e terminal integrado. Os agentes usam a conta do provedor que você já
-            tem, conectada no seu próprio computador.
+            No desktop, o botão <strong>Agentes</strong> da barra do topo abre uma área para rodar vários agentes de IA em paralelo, cada
+            um num projeto seu. Os agentes usam a conta do provedor de IA que você já tem, conectada no seu próprio computador.
+          </p>
+          <h3>Conectar</h3>
+          <p>
+            Na primeira vez, a área mostra o estado da conexão com o provedor. <em>Entrar</em> abre o login oficial num terminal, e o
+            estado muda para conectado sozinho quando o login termina.
+          </p>
+          <h3>Trabalhar com um agente</h3>
+          <ul>
+            <li><strong>Novo agente</strong> pede o projeto em que ele vai trabalhar. Cada agente aparece na lista com o seu estado: trabalhando, aguardando você ou concluído.</li>
+            <li>Para cada mensagem, escolha o modo (<em>Perguntar</em>, <em>Planejar</em> ou <em>Editar</em>), o modelo e o esforço.</li>
+            <li>Comandos e alterações pedem permissão por ferramenta, mostrando o comando exato. Você pode permitir uma vez, permitir sempre naquela conversa ou negar com um motivo.</li>
+            <li>O painel <em>Alterações</em> mostra cada arquivo que o agente mudou, com o diff. O painel <em>Terminal</em> abre terminais na pasta do projeto, que continuam rodando quando você troca de agente.</li>
+            <li><em>Parar</em> interrompe o turno; a conversa aceita a próxima mensagem em seguida.</li>
+            <li>Agentes podem ser fixados no topo da lista ou arquivados.</li>
+          </ul>
+          <h3>Passos do fluxo</h3>
+          <p>
+            Para projetos organizados em especificações, o menu <em>Passos do fluxo</em> insere o comando de cada etapa (Specify, Clarify,
+            Plan, Tasks, Analyze e Implement), já apontando para a especificação escolhida, e o cabeçalho da conversa mostra a etapa atual.
           </p>
 
           <h2 id="dados">Onde ficam seus dados</h2>
@@ -167,7 +200,8 @@
           <table>
             <tbody>
               <tr><td><kbd>⌘</kbd> <kbd>K</kbd> / <kbd>Ctrl</kbd> <kbd>K</kbd></td><td>Buscar notas e comandos</td></tr>
-              <tr><td><kbd>/</kbd> na Brain AI</td><td>Usar uma skill</td></tr>
+              <tr><td><kbd>/</kbd> na Brain AI ou num agente</td><td>Usar uma skill ou um comando</td></tr>
+              <tr><td><kbd>Enter</kbd> / <kbd>Shift</kbd> <kbd>Enter</kbd></td><td>Enviar a mensagem / quebrar a linha</td></tr>
             </tbody>
           </table>
 
@@ -177,24 +211,15 @@
       </div>
     </main>
 
-    <footer class="footer footer--compact frame">
-      <div class="footer-top">
-        <div class="notes">
-          <a class="wordmark" href="./">Brain Notes</a>
-          <p>Notas, reuniões e ações em Markdown, no seu repositório.</p>
-        </div>
-        <a class="link" href="#">Voltar ao topo</a>
-      </div>
-      <h2 class="contact"><a href="mailto:bruno.dias.donnici@gmail.com">bruno.dias.donnici@gmail.com</a></h2>
-      <div class="footer-meta">
-        <nav aria-label="Rodapé">
-          <a class="link" href="docs.html">Documentação</a>
-          <a class="link" href="terms.html">Termos de Uso</a>
-          <a class="link" href="privacy.html">Política de Privacidade</a>
-        </nav>
-        <span class="center"></span>
-        <span class="right">© 2026 Bruno Dias Donnici. Todos os direitos reservados.</span>
-      </div>
+    <footer class="quiet frame">
+      <span>Brain Notes · notas em Markdown</span>
+      <nav aria-label="Rodapé">
+        <a href="docs.html">Documentação</a>
+        <a href="terms.html">Termos</a>
+        <a href="privacy.html">Privacidade</a>
+        <a href="mailto:bruno.dias.donnici@gmail.com">Contato</a>
+      </nav>
+      <span class="right">© 2026 Bruno Dias Donnici</span>
     </footer>
   </body>
 </html>
