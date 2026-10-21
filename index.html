@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Brain Notes — notas, reuniões e ações em Markdown</title>
+    <meta
+      name="description"
+      content="Brain Notes junta notas, reuniões transcritas no seu computador e ações num só app, tudo salvo como Markdown no seu próprio repositório."
+    />
+    <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+    <link href="https://api.fontshare.com/v2/css?f[]=erode@400,500,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/site.css" />
+    <script src="assets/site.js"></script>
+  </head>
+  <body>
+    <header class="hero frame">
+      <div class="bar">
+        <a class="wordmark" href="./"><img src="assets/icon.svg" alt="" width="26" height="26" />Brain Notes</a>
+        <nav aria-label="Principal">
+          <a href="docs.html">Documentação</a>
+          <a class="hide-sm" href="terms.html">Termos</a>
+          <a class="hide-sm" href="privacy.html">Privacidade</a>
+        </nav>
+      </div>
+
+      <h1>
+        <span>Brain</span>
+        <span class="slot shutter" role="img" aria-label="Uma nota de reunião em Markdown rolando dentro do nome">
+          <code class="reel" data-ui aria-hidden="true"><span class="reel-track"><span class="dim">---</span>
+<span class="k">title</span>: Planejamento Q4
+<span class="k">participants</span>: [Ana, Caio]
+<span class="dim">---</span>
+<span class="h">## Resumo</span>
+Lançar o app web até o dia 31.
+<span class="h">## Ações</span>
+- [ ] Revisar onboarding <span class="tag">#action</span> @ana
+- [x] Fechar escopo <span class="tag">#action</span>
+- [ ] Testar com 5 pessoas <span class="tag">#action</span>
+<span class="h">## Decisões</span>
+Preço único, sem assinatura.
+<span class="dim">---</span>
+<span class="k">title</span>: Planejamento Q4
+<span class="k">participants</span>: [Ana, Caio]
+<span class="dim">---</span>
+<span class="h">## Resumo</span>
+Lançar o app web até o dia 31.
+<span class="h">## Ações</span>
+- [ ] Revisar onboarding <span class="tag">#action</span> @ana
+- [x] Fechar escopo <span class="tag">#action</span>
+- [ ] Testar com 5 pessoas <span class="tag">#action</span>
+<span class="h">## Decisões</span>
+Preço único, sem assinatura.
+</span></code>
+        </span>
+        <span>Notes</span>
+      </h1>
+
+      <div class="hero-foot">
+        <p>Notas, reuniões e ações num só app. Tudo vira Markdown no seu próprio repositório.</p>
+        <a class="button" href="#licenca">Solicitar licença</a>
+      </div>
+
+      <div class="app" data-ui role="img" aria-label="Tela inicial do Brain Notes: conversa da Brain AI com citações e as próximas reuniões da agenda">
+        <div class="app-top">
+          <span class="dots"><i></i><i></i><i></i></span>
+          <div class="tabs"><span class="on">Brain AI</span><span>Notetaker</span><span>Agentes</span></div>
+        </div>
+        <div class="app-body">
+          <div class="app-side">
+            <span class="on">Início</span>
+            <span>Notas <em class="dim">214</em></span>
+            <span>Reuniões <em class="dim">38</em></span>
+            <span>Ações <em class="dim">12</em></span>
+            <span>Projetos <em class="dim">5</em></span>
+            <span>Versões <em class="dim">3</em></span>
+          </div>
+          <div class="app-chat">
+            <span class="ctx">Contexto: reunioes/</span>
+            <div class="msg me">O que ficou decidido sobre o app web?</div>
+            <div class="msg">
+              Lançar o app web até o dia 31, com preço único e sem assinatura. A Ana revisa o onboarding e o Caio testa com cinco pessoas
+              antes da data.
+              <div><span class="cite">planejamento-q4.md</span><span class="cite">app-web.md</span></div>
+            </div>
+            <div class="composer"><span>Pergunte sobre suas notas</span><span>/ skills</span></div>
+          </div>
+          <div class="app-cal">
+            <div class="title"><span>Próximas reuniões</span><span class="dim">Hoje</span></div>
+            <div class="event"><span class="t">14:00</span><span>Revisão de design</span><span class="t"></span><span class="dim">3 participantes</span><span class="rec">Gravar</span></div>
+            <div class="event"><span class="t">16:30</span><span>1:1 com a Ana</span><span class="t"></span><span class="dim">2 participantes</span></div>
+            <div class="event"><span class="t">Qui</span><span>Planejamento semanal</span><span class="t"></span><span class="dim">6 participantes</span></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="showcase frame" aria-labelledby="showcase-title">
+        <h2 id="showcase-title" data-reveal>Escreva a ação como fala.</h2>
+        <div class="typed" data-ui data-reveal style="--i: 1">
+          <label for="action-input" class="sr-only">Descreva uma ação</label>
+          <input id="action-input" type="text" value="pagar boleto sexta 15h urgente @ana" autocomplete="off" spellcheck="false" />
+        </div>
+        <div class="grid">
+          <div class="answer" data-ui data-reveal style="--i: 2" aria-live="polite">
+            <code class="answer-line" id="action-line">- [ ] pagar boleto ⏫ 📅 2026-10-23 (@2026-10-23 15:00) #action @ana</code><!-- taste-skill-ignore: file format -->
+            <dl>
+              <dt>Prazo</dt>
+              <dd id="f-due">sex., 23 de out.</dd>
+              <dt>Lembrete</dt>
+              <dd id="f-reminder">sex., 23 de out., 15:00</dd>
+              <dt>Dono</dt>
+              <dd id="f-owner">@ana</dd>
+              <dt>Prioridade</dt>
+              <dd id="f-priority">alta</dd>
+            </dl>
+          </div>
+          <div class="actions" data-ui data-reveal style="--i: 3" role="img" aria-label="Lista de Ações com a nova ação no topo">
+            <div class="panel-title"><span>Ações</span><span class="dim">5 abertas</span></div>
+            <div class="act new" id="action-new"><span class="box"></span><span class="what">pagar boleto</span><span class="meta">@ana · 23 de out.</span></div>
+            <div class="act"><span class="box"></span><span class="what">Revisar onboarding</span><span class="meta">@ana · 25 de out.</span></div>
+            <div class="act"><span class="box"></span><span class="what">Testar com 5 pessoas</span><span class="meta">@caio · 29 de out.</span></div>
+            <div class="act"><span class="box"></span><span class="what">Atualizar Template de 1:1</span><span class="meta">30 de out.</span></div>
+            <div class="act done"><span class="box"></span><span class="what">Fechar escopo da v1</span><span class="meta">@bruno</span></div>
+          </div>
+        </div>
+        <div class="examples" data-reveal style="--i: 3">
+          <span>Experimente</span>
+          <button type="button" data-example="ligar para o Caio amanhã 9h">ligar para o Caio amanhã 9h</button>
+          <button type="button" data-example="enviar proposta 30/10 importante @bruno #vendas">enviar proposta 30/10 importante</button>
+          <button type="button" data-example="revisar contrato hoje">revisar contrato hoje</button>
+        </div>
+      </section>
+
+      <section class="stages frame" aria-labelledby="stages-title">
+        <h2 id="stages-title" data-reveal>Da chamada à nota.</h2>
+        <div class="pipeline" data-ui aria-hidden="true">
+          <div class="seg" style="--i: 0">Uma hora de reunião</div>
+          <div class="seg" style="--i: 1">Uns dez minutos</div>
+          <div class="seg" style="--i: 2">Um minuto</div>
+          <div class="seg" style="--i: 3">Na hora</div>
+        </div>
+        <ol class="clauses">
+          <li data-reveal style="--i: 0"><strong>Uma hora de reunião</strong><span>Primeiro, o app pergunta se deve gravar e capta o microfone e o áudio do sistema, com pausa.</span></li>
+          <li data-reveal style="--i: 1"><strong>Uns dez minutos</strong>Depois, transcreve e separa quem falou, sem internet.</li>
+          <li data-reveal style="--i: 2"><strong>Um minuto</strong>Então resume pelo seu Template.</li>
+          <li data-reveal style="--i: 3"><strong>Na hora</strong>Por fim, as ações viram tarefas e o áudio é apagado.</li>
+        </ol>
+      </section>
+
+      <section class="features frame" aria-labelledby="features-title">
+        <h2 id="features-title" data-reveal>Tudo o que cabe num arquivo de texto.</h2>
+        <div class="grid">
+          <div class="history" data-ui data-reveal role="img" aria-label="Painel de versões com três alterações prontas para sincronizar">
+            <div class="panel-title"><span>Alterações</span><span class="dim">3</span></div>
+            <div class="row sel"><span>reunioes/planejamento-q4.md</span><span><span class="add">+18</span> <span class="del">−2</span></span></div>
+            <div class="row"><span>projetos/app-web.md</span><span><span class="add">+4</span></span></div>
+            <div class="row"><span>inbox/ideias.md</span><span><span class="add">+1</span> <span class="del">−1</span></span></div>
+            <pre class="diff"><code><span class="dim">planejamento-q4.md</span>
+<span class="add">+ - [ ] Revisar onboarding #action @ana</span>
+<span class="add">+ - [ ] Testar com 5 pessoas #action</span>
+<span class="del">− Lançar em novembro.</span>
+<span class="add">+ Lançar o app web até o dia 31.</span></code></pre>
+            <span class="sync">Sincronizar</span>
+          </div>
+                    <ul class="ftable">
+            <li data-reveal style="--i: 0"><span class="kind">Notas</span><span>Editor em blocos</span><span class="val">.md</span></li>
+            <li data-reveal style="--i: 1"><span class="kind">Notas</span><span>Propriedades, links e tags</span><span class="val">no cabeçalho</span></li>
+            <li data-reveal style="--i: 2"><span class="kind">Notas</span><span>Busca rápida</span><span class="val">⌘K</span></li>
+            <li class="group" data-reveal style="--i: 3"><span class="kind">Histórico</span><span>Diff de cada alteração</span><span class="val">por nota</span></li>
+            <li data-reveal style="--i: 4"><span class="kind">Histórico</span><span>Conflitos lado a lado</span><span class="val">sem Git</span></li>
+            <li class="group" data-reveal style="--i: 5"><span class="kind">Reuniões</span><span>Transcrição e falantes</span><span class="val">locais</span></li>
+            <li data-reveal style="--i: 6"><span class="kind">Reuniões</span><span>Agenda do Google</span><span class="val">só leitura</span></li>
+            <li data-reveal style="--i: 7"><span class="kind">Reuniões</span><span>Templates de resumo</span><span class="val">seus</span></li>
+            <li class="group" data-reveal style="--i: 8"><span class="kind">Ações</span><span>Lista única com dono e prazo</span><span class="val">#action</span></li>
+            <li data-reveal style="--i: 9"><span class="kind">Ações</span><span>Lembretes</span><span class="val">no aparelho</span></li>
+            <li class="group" data-reveal style="--i: 10"><span class="kind">IA</span><span>Brain AI com citações</span><span class="val">sob pedido</span></li>
+            <li data-reveal style="--i: 11"><span class="kind">IA</span><span>Agentes em paralelo</span><span class="val">desktop</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="about frame" aria-labelledby="about-title">
+        <div class="grid">
+          <h2 id="about-title" data-reveal>Seus dados são seus.</h2>
+          <div class="facts" data-reveal style="--i: 1">
+            <div><strong>Servidor de dados</strong>nenhum</div>
+            <div><strong>Formato</strong>Markdown</div>
+            <div><strong>Áudio guardado</strong>zero minutos</div>
+          </div>
+          <div class="statement" data-reveal style="--i: 2">
+            <span class="tree" data-ui role="img" aria-label="Pastas de um repositório de notas"><pre aria-hidden="true">notas/
+├ inbox/
+├ projetos/
+├ reunioes/
+└ .brain-notes/</pre></span>
+            <p>O Brain Notes não tem banco de dados nem servidor guardando o que você escreve. Cada nota, resumo e ação é um
+              arquivo no repositório que você escolheu, e a cópia local funciona offline.
+            </p>
+            <p>
+              Gravação, transcrição e resumo rodam no seu computador. Nada vai para um provedor de IA sem um pedido seu, e você
+              pode abrir seus arquivos em qualquer editor, hoje ou daqui a dez anos.
+            </p>
+          </div>
+          <figure class="archive archive-wide" data-reveal style="--i: 3">
+            <div class="shutter"><img src="assets/commonplace-book-mid-17th-century.jpg" width="1024" height="896" alt="Caderno manuscrito aberto, com poemas copiados à mão em tinta marrom" loading="lazy" decoding="async" /></div>
+            <figcaption>Caderno de lugares-comuns, Inglaterra, meados do século XVII. Texto escrito à mão, ainda legível.</figcaption>
+          </figure>
+          <figure class="archive archive-tall" data-reveal style="--i: 4">
+            <img src="assets/english-commonplace-book-wellcome-l0049735.jpg" width="1024" height="1600" alt="Página de caderno com a contagem de pedestres, carroças e cavalos que cruzaram duas pontes de Londres em julho de 1811" loading="lazy" decoding="async" />
+            <figcaption>Contagem de quem cruzou as pontes de Londres num dia de 1811, anotada num caderno pessoal.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="faq frame" id="licenca" aria-labelledby="faq-title">
+        <h2 id="faq-title" data-reveal>Antes de comprar a licença</h2>
+        <div class="faq-list">
+          <details data-reveal style="--i: 0">
+            <summary>Como compro e quanto custa?</summary>
+            <p>
+              O Brain Notes é vendido por licença. Escreva para
+              <a href="mailto:bruno.dias.donnici@gmail.com?subject=Brain%20Notes%3A%20licen%C3%A7a">bruno.dias.donnici@gmail.com</a>
+              e você recebe o valor, a forma de pagamento e o instalador. Você tem 7 dias para desistir.
+            </p>
+          </details>
+          <details data-reveal style="--i: 1">
+            <summary>Em quais sistemas funciona?</summary>
+            <p>No macOS com Apple Silicon hoje. Windows, Linux e um app web instalável, com notas e ações, estão a caminho.</p>
+          </details>
+          <details data-reveal style="--i: 2">
+            <summary>Funciona sem internet?</summary>
+            <p>Sim. O app trabalha numa cópia local do repositório; a sincronização acontece quando a conexão volta.</p>
+          </details>
+          <details data-reveal style="--i: 3">
+            <summary>Onde ficam minhas notas?</summary>
+            <p>No repositório Git que você escolhe ao entrar e na cópia do seu computador. Não temos acesso a elas.</p>
+          </details>
+          <details data-reveal style="--i: 4">
+            <summary>A IA lê minhas notas?</summary>
+            <p>
+              Só quando você pede. A Brain AI usa o provedor que você conecta com a sua conta, e cada alteração numa nota existente
+              pede sua permissão. Os resumos de reunião são locais por padrão.
+            </p>
+          </details>
+          <details data-reveal style="--i: 5">
+            <summary>E se eu parar de usar?</summary>
+            <p>Seus arquivos continuam no seu repositório, em Markdown puro, legíveis por qualquer editor de texto.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="close frame" aria-labelledby="close-title">
+        <h2 id="close-title" data-reveal>Pense em texto puro.</h2>
+        <div class="baseline">
+          <p data-reveal style="--i: 1">Uma licença, seus arquivos para sempre. Escreva e receba o instalador.</p>
+          <a class="button" data-reveal style="--i: 2" href="mailto:bruno.dias.donnici@gmail.com?subject=Brain%20Notes%3A%20licen%C3%A7a">Solicitar licença</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer frame">
+      <div class="footer-top">
+        <div class="notes">
+          <a class="wordmark" href="./">Brain Notes</a>
+          <p>Notas, reuniões e ações em Markdown, no seu repositório.</p>
+          <p>Suporte e licenças por e-mail.</p>
+        </div>
+        <a class="link" href="#">Voltar ao topo</a>
+      </div>
+      <h2 class="contact"><a href="mailto:bruno.dias.donnici@gmail.com"><span>bruno.dias.donnici</span><span>@gmail.com</span></a></h2>
+      <div class="footer-meta">
+        <nav aria-label="Rodapé">
+          <a class="link" href="docs.html">Documentação</a>
+          <a class="link" href="terms.html">Termos de Uso</a>
+          <a class="link" href="privacy.html">Política de Privacidade</a>
+        </nav>
+        <span class="center">Imagens: Beinecke Library (<a class="link" href="https://commons.wikimedia.org/w/index.php?curid=11825444">CC BY 2.0</a>) e Wellcome Collection (<a class="link" href="https://commons.wikimedia.org/w/index.php?curid=36133054">CC BY 4.0</a>), via Wikimedia Commons</span>
+        <span class="right">© 2026 Bruno Dias Donnici. Todos os direitos reservados.</span>
+      </div>
+    </footer>
+  </body>
+</html>

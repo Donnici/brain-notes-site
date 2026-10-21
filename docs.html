@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Documentação Brain Notes</title>
+    <meta name="description" content="Como instalar e usar o Brain Notes: notas, histórico, reuniões, agenda, ações e Brain AI." />
+    <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+    <link href="https://api.fontshare.com/v2/css?f[]=erode@400,500,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/site.css" />
+    <script src="assets/site.js"></script>
+  </head>
+  <body>
+    <header class="bar frame">
+      <a class="wordmark" href="./"><img src="assets/icon.svg" alt="" width="26" height="26" />Brain Notes</a>
+      <nav aria-label="Principal">
+        <a href="docs.html" aria-current="page">Documentação</a>
+        <a href="terms.html">Termos</a>
+        <a href="privacy.html">Privacidade</a>
+      </nav>
+      <a class="button button--small" href="index.html#licenca">Solicitar licença</a>
+    </header>
+
+    <main>
+      <div class="doc-head frame">
+        <h1>Como usar o Brain Notes</h1>
+        <p>Instalação, notas, histórico, reuniões, agenda, ações e Brain AI, passo a passo.</p>
+      </div>
+
+      <div class="doc grid frame">
+        <aside class="toc">
+          <h2>Nesta página</h2>
+          <ol>
+            <li><a href="#primeiros-passos">Primeiros passos</a></li>
+            <li><a href="#notas">Notas</a></li>
+            <li><a href="#historico">Histórico e sincronização</a></li>
+            <li><a href="#reunioes">Reuniões</a></li>
+            <li><a href="#agenda">Agenda</a></li>
+            <li><a href="#templates">Templates de resumo</a></li>
+            <li><a href="#acoes">Ações e lembretes</a></li>
+            <li><a href="#brain-ai">Brain AI</a></li>
+            <li><a href="#agentes">Agentes</a></li>
+            <li><a href="#dados">Onde ficam seus dados</a></li>
+            <li><a href="#atalhos">Atalhos</a></li>
+            <li><a href="#suporte">Suporte</a></li>
+          </ol>
+        </aside>
+
+        <article class="prose">
+          <h2 id="primeiros-passos">Primeiros passos</h2>
+          <ol>
+            <li><strong>Obtenha a licença.</strong> O Brain Notes é software pago. Com a licença você recebe o instalador.</li>
+            <li>
+              <strong>Instale.</strong> No macOS (Apple Silicon), abra o <code>.dmg</code> e arraste o Brain Notes para Aplicativos. Na
+              primeira abertura, clique com o botão direito no app, escolha <em>Abrir</em> e confirme.
+            </li>
+            <li>
+              <strong>Entre com sua conta do GitHub.</strong> O app mostra um código; confirme-o na página que abre no navegador. O
+              acesso pedido é o de leitura e escrita nos seus repositórios, para guardar suas notas.
+            </li>
+            <li>
+              <strong>Escolha o repositório das notas.</strong> Pode ser um repositório vazio ou um que já tenha arquivos Markdown. O app
+              faz uma cópia local e funciona offline.
+            </li>
+          </ol>
+          <div class="note"><p>Nada do que você cria fica em servidores do Brain Notes. Suas notas vivem no seu repositório e na cópia local do seu computador.</p></div>
+
+          <h2 id="notas">Notas</h2>
+          <p>
+            Cada nota é um arquivo <code>.md</code>. O editor em blocos grava Markdown e preserva exatamente o que você não editou, então o
+            histórico só mostra as suas mudanças.
+          </p>
+          <ul>
+            <li><strong>Propriedades</strong>: o cabeçalho YAML (frontmatter) aparece como um painel editável.</li>
+            <li><strong>Links</strong>: <code>[[Outra nota]]</code> liga notas entre si; <code>#tag</code> agrupa por assunto.</li>
+            <li><strong>Código-fonte</strong>: alterne para ver e editar o Markdown cru a qualquer momento.</li>
+            <li><strong>Imagens</strong>: cole ou arraste; o arquivo vai para o repositório junto da nota.</li>
+          </ul>
+
+          <h2 id="historico">Histórico e sincronização</h2>
+          <p>
+            O painel de versões lista as alterações ainda não sincronizadas, com o diff de cada uma. <strong>Sincronizar</strong> grava,
+            busca as mudanças de outros aparelhos e envia as suas. Cada nota tem seu histórico completo.
+          </p>
+          <p>
+            Se a mesma nota mudou em dois lugares, o app junta o que dá automaticamente e mostra o restante lado a lado para você escolher.
+          </p>
+
+          <h2 id="reunioes">Reuniões</h2>
+          <p>
+            Quando uma chamada começa, o Brain Notes <strong>pergunta</strong> se deve gravar — ele nunca grava sozinho. A gravação capta
+            o microfone e o áudio do sistema e pode ser pausada.
+          </p>
+          <ul>
+            <li>Transcrição, separação de falantes e resumo rodam <strong>no seu computador</strong>. Os modelos são baixados uma vez.</li>
+            <li>O resultado são duas notas: o resumo e a transcrição. O áudio é <strong>apagado</strong> logo depois de transcrito.</li>
+            <li>No macOS, a primeira gravação pede acesso ao microfone e à gravação de tela e áudio do sistema (macOS 14.2 ou superior). Sem esse acesso, só o microfone é gravado.</li>
+          </ul>
+
+          <h2 id="agenda">Agenda</h2>
+          <p>Conecte uma ou mais contas do Google Calendar em <em>Ajustes → Agenda</em>. O acesso é <strong>somente leitura</strong>.</p>
+          <ul>
+            <li>A tela inicial mostra as próximas reuniões e as recentes.</li>
+            <li>Um minuto antes de uma reunião, o app avisa e oferece gravar ou preparar a nota.</li>
+            <li>Uma gravação iniciada até 15 minutos antes de um evento é ligada a ele: título e participantes vão para a nota.</li>
+            <li>Escolha quais agendas acompanhar. <em>Desconectar</em> apaga o acesso e os eventos guardados daquela conta.</li>
+          </ul>
+          <p>Detalhes sobre os dados da agenda estão na <a href="privacy.html#google">Política de Privacidade</a>.</p>
+
+          <h2 id="templates">Templates de resumo</h2>
+          <p>
+            O formato do resumo de cada reunião vem de um Template: um arquivo Markdown em <code>.brain-notes/templates/</code> no seu
+            repositório. O app traz modelos prontos que você pode duplicar e ajustar. Por padrão o resumo é feito localmente; você pode
+            optar por usar o provedor de IA conectado.
+          </p>
+
+          <h2 id="acoes">Ações e lembretes</h2>
+          <p>Toda linha de tarefa com a marca <code>#action</code>, em qualquer nota, aparece na lista de Ações:</p>
+<pre><code>- [ ] Revisar contrato ⏫ 📅 2026-10-25 (@2026-10-24 09:00) #action @ana [[Projeto X#Fase 1]]</code></pre><!-- taste-skill-ignore: file format -->
+          <table>
+            <thead><tr><th>Parte</th><th>Significado</th></tr></thead>
+            <tbody>
+              <tr><td><code>[ ]</code> <code>[/]</code> <code>[x]</code> <code>[-]</code></td><td>A fazer, em andamento, feita, cancelada</td></tr>
+              <tr><td><code>⏫</code> <code>🔼</code> <code>🔽</code></td><td>Prioridade alta, média, baixa</td></tr><!-- taste-skill-ignore: file format -->
+              <tr><td><code>📅 data</code></td><td>Prazo</td></tr><!-- taste-skill-ignore: file format -->
+              <tr><td><code>(@data hora)</code></td><td>Lembrete com notificação</td></tr>
+              <tr><td><code>@pessoa</code></td><td>Dono da ação</td></tr>
+              <tr><td><code>[[Projeto#Etapa]]</code></td><td>Projeto (nota com <code>type: project</code>) e etapa (seção <code>##</code> da nota)</td></tr>
+            </tbody>
+          </table>
+
+          <h2 id="brain-ai">Brain AI</h2>
+          <p>
+            A Brain AI é um chat sobre o seu repositório de notas. Escolha o contexto — o repositório inteiro, uma pasta ou uma nota — e
+            pergunte. As respostas citam as notas usadas.
+          </p>
+          <ul>
+            <li>Usa o provedor de IA que <strong>você</strong> conecta com a sua própria conta. O Brain Notes não guarda essa credencial.</li>
+            <li>Conteúdo só é enviado quando você manda uma mensagem.</li>
+            <li>Notas novas vão para a pasta <code>inbox/</code>. Editar uma nota existente sempre pede sua permissão.</li>
+            <li>A Brain AI nunca grava nem sincroniza o histórico: isso continua sendo decisão sua.</li>
+          </ul>
+
+          <h2 id="agentes">Agentes</h2>
+          <p>
+            No desktop, a área de Agentes roda vários agentes de IA em paralelo, cada um num projeto seu, com conversas, pedidos de
+            permissão por ferramenta, arquivos alterados com diff e terminal integrado. Os agentes usam a conta do provedor que você já
+            tem, conectada no seu próprio computador.
+          </p>
+
+          <h2 id="dados">Onde ficam seus dados</h2>
+          <table>
+            <thead><tr><th>Dado</th><th>Onde fica</th></tr></thead>
+            <tbody>
+              <tr><td>Notas, resumos, transcrições, ações, Templates</td><td>Seu repositório e a cópia local</td></tr>
+              <tr><td>Áudio das reuniões</td><td>Só no seu computador, até terminar a transcrição</td></tr>
+              <tr><td>Credenciais (GitHub, Google)</td><td>Cofre do sistema operacional, no seu computador</td></tr>
+              <tr><td>Eventos da agenda</td><td>Cache local, apagado ao desconectar</td></tr>
+              <tr><td>Conversas da Brain AI e dos Agentes</td><td>Arquivos locais do app</td></tr>
+            </tbody>
+          </table>
+
+          <h2 id="atalhos">Atalhos</h2>
+          <table>
+            <tbody>
+              <tr><td><kbd>⌘</kbd> <kbd>K</kbd> / <kbd>Ctrl</kbd> <kbd>K</kbd></td><td>Buscar notas e comandos</td></tr>
+              <tr><td><kbd>/</kbd> na Brain AI</td><td>Usar uma skill</td></tr>
+            </tbody>
+          </table>
+
+          <h2 id="suporte">Suporte</h2>
+          <p>Dúvidas, problemas ou pedidos: <a href="mailto:bruno.dias.donnici@gmail.com">bruno.dias.donnici@gmail.com</a>.</p>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer footer--compact frame">
+      <div class="footer-top">
+        <div class="notes">
+          <a class="wordmark" href="./">Brain Notes</a>
+          <p>Notas, reuniões e ações em Markdown, no seu repositório.</p>
+        </div>
+        <a class="link" href="#">Voltar ao topo</a>
+      </div>
+      <h2 class="contact"><a href="mailto:bruno.dias.donnici@gmail.com">bruno.dias.donnici@gmail.com</a></h2>
+      <div class="footer-meta">
+        <nav aria-label="Rodapé">
+          <a class="link" href="docs.html">Documentação</a>
+          <a class="link" href="terms.html">Termos de Uso</a>
+          <a class="link" href="privacy.html">Política de Privacidade</a>
+        </nav>
+        <span class="center"></span>
+        <span class="right">© 2026 Bruno Dias Donnici. Todos os direitos reservados.</span>
+      </div>
+    </footer>
+  </body>
+</html>

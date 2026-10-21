@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Política de Privacidade</title>
+    <meta name="description" content="Como o Brain Notes trata seus dados, incluindo os dados do Google Calendar." />
+    <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+    <link href="https://api.fontshare.com/v2/css?f[]=erode@400,500,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/site.css" />
+    <script src="assets/site.js"></script>
+  </head>
+  <body>
+    <header class="bar frame">
+      <a class="wordmark" href="./"><img src="assets/icon.svg" alt="" width="26" height="26" />Brain Notes</a>
+      <nav aria-label="Principal">
+        <a href="docs.html">Documentação</a>
+        <a href="terms.html">Termos</a>
+        <a href="privacy.html" aria-current="page">Privacidade</a>
+      </nav>
+      <a class="button button--small" href="index.html#licenca">Solicitar licença</a>
+    </header>
+
+    <main>
+      <div class="doc-head frame">
+        <h1>Política de Privacidade</h1>
+        <p>Vigente desde 21 de outubro de 2026. Quais dados o Brain Notes trata, onde ficam e o que fazemos com os dados do Google.</p>
+      </div>
+
+      <div class="doc grid frame">
+        <aside class="toc">
+          <h2>Nesta página</h2>
+          <ol>
+            <li><a href="#resumo">Resumo</a></li>
+            <li><a href="#controlador">Quem é o responsável</a></li>
+            <li><a href="#dados">Dados tratados</a></li>
+            <li><a href="#google">Dados do Google</a></li>
+            <li><a href="#ia">Provedor de IA</a></li>
+            <li><a href="#compartilhamento">Compartilhamento</a></li>
+            <li><a href="#seguranca">Segurança</a></li>
+            <li><a href="#retencao">Retenção e exclusão</a></li>
+            <li><a href="#direitos">Seus direitos</a></li>
+            <li><a href="#site">Este site</a></li>
+            <li><a href="#mudancas">Mudanças</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ol>
+        </aside>
+
+        <article class="prose">
+          <h2 id="resumo">Resumo</h2>
+          <div class="note">
+            <p>
+              O Brain Notes é um aplicativo que roda no seu computador. Ele <strong>não tem servidor de dados</strong>: não coletamos,
+              não armazenamos e não vendemos suas notas, reuniões, ações ou dados da sua agenda. O que você cria fica no seu computador e
+              no repositório que você escolheu.
+            </p>
+          </div>
+
+          <h2 id="controlador">Quem é o responsável</h2>
+          <p>
+            O Brain Notes é desenvolvido e distribuído por <strong>Bruno Dias Donnici</strong> (“nós”). Esta política se aplica ao
+            aplicativo Brain Notes (desktop e app web) e a este site, e segue a Lei Geral de Proteção de Dados (Lei nº 13.709/2018).
+          </p>
+
+          <h2 id="dados">Dados tratados</h2>
+          <table>
+            <thead><tr><th>Dado</th><th>Para quê</th><th>Onde fica</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>Notas, resumos, transcrições, ações e Templates</td>
+                <td>Funcionamento principal do app</td>
+                <td>No seu computador e no seu repositório Git. Não temos acesso.</td>
+              </tr>
+              <tr>
+                <td>Áudio das reuniões</td>
+                <td>Transcrição e resumo locais</td>
+                <td>Só no seu computador; apagado depois da transcrição. Nunca é enviado para a internet.</td>
+              </tr>
+              <tr>
+                <td>Token de acesso do GitHub</td>
+                <td>Ler e gravar suas notas no repositório que você escolheu</td>
+                <td>Cofre do sistema operacional, no seu computador.</td>
+              </tr>
+              <tr>
+                <td>Token e dados do Google Calendar</td>
+                <td>Mostrar suas reuniões e ligar gravações a eventos (ver abaixo)</td>
+                <td>Cofre do sistema e cache local, no seu computador.</td>
+              </tr>
+              <tr>
+                <td>Conversas da Brain AI e dos Agentes</td>
+                <td>Histórico e retomada das conversas</td>
+                <td>Arquivos locais do app, no seu computador.</td>
+              </tr>
+              <tr>
+                <td>Nome e e-mail informados na compra da licença</td>
+                <td>Emitir e validar a licença, suporte e cobrança</td>
+                <td>Registros de venda, pelo tempo exigido em lei.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>O app <strong>não</strong> inclui rastreamento, publicidade, analytics nem envio de telemetria.</p>
+
+          <h2 id="google">Dados do Google (Google Calendar)</h2>
+          <p>A conexão com o Google Calendar é opcional e iniciada por você em <em>Ajustes → Agenda</em>.</p>
+          <h3>O que acessamos</h3>
+          <ul>
+            <li>
+              Escopo <code>https://www.googleapis.com/auth/calendar.readonly</code>: lista das suas agendas e, dos eventos, título,
+              horário, participantes (nome, e-mail e resposta ao convite), local e link da chamada.
+            </li>
+            <li>Informações básicas do perfil (endereço de e-mail e nome) para identificar a conta conectada.</li>
+          </ul>
+          <p>O acesso é <strong>somente leitura</strong>. O Brain Notes nunca cria, altera ou exclui eventos.</p>
+          <h3>Como usamos</h3>
+          <ul>
+            <li>Mostrar as próximas reuniões e as recentes na tela inicial do app.</li>
+            <li>Avisar um minuto antes de uma reunião.</li>
+            <li>Quando você grava uma reunião ligada a um evento, colocar o título e os participantes do evento na nota da reunião, que é salva no seu repositório.</li>
+          </ul>
+          <h3>Onde fica e por quanto tempo</h3>
+          <p>
+            A comunicação acontece diretamente entre o seu computador e o Google; os dados não passam por servidores nossos. O token de
+            acesso fica no cofre do sistema operacional e os eventos ficam num cache local. Ao <em>Desconectar</em> a conta, o app apaga o
+            token, a conta e os eventos guardados e revoga o acesso. Você também pode revogar a qualquer momento em
+            <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.
+          </p>
+          <h3>O que não fazemos</h3>
+          <ul>
+            <li>Não vendemos, alugamos nem transferimos dados do Google a terceiros.</li>
+            <li>Não usamos dados do Google para publicidade, perfilamento ou avaliação de crédito.</li>
+            <li>Não usamos dados do Google para desenvolver, melhorar ou treinar modelos de inteligência artificial.</li>
+            <li>Ninguém além de você lê os seus dados do Google.</li>
+          </ul>
+          <div class="note">
+            <p>
+              O uso e a transferência, pelo Brain Notes, de informações recebidas das APIs do Google seguem a
+              <a href="https://developers.google.com/terms/api-services-user-data-policy">Política de Dados do Usuário dos Serviços de API do Google</a>,
+              incluindo os requisitos de Uso Limitado.
+            </p>
+            <p lang="en">
+              Brain Notes' use and transfer of information received from Google APIs to any other app will adhere to the
+              <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>,
+              including the Limited Use requirements.
+            </p>
+          </div>
+
+          <h2 id="ia">Provedor de IA</h2>
+          <p>
+            A Brain AI, o resumo opcional pelo provedor e a área de Agentes usam um provedor de IA que <strong>você</strong> conecta com a
+            sua própria conta. O conteúdo das notas só é enviado a esse provedor quando você manda uma mensagem ou pede uma ação, e fica
+            sujeito à política de privacidade dele. Dados obtidos das APIs do Google não são enviados ao provedor de IA pelo Brain Notes;
+            eles só chegam lá se você mesmo incluir, numa conversa, uma nota que os contenha.
+          </p>
+
+          <h2 id="compartilhamento">Compartilhamento</h2>
+          <p>Não compartilhamos dados pessoais com terceiros, exceto:</p>
+          <ul>
+            <li>com os serviços que você mesmo conecta (seu repositório Git, Google Calendar, provedor de IA), para que funcionem;</li>
+            <li>quando exigido por lei ou ordem judicial.</li>
+          </ul>
+
+          <h2 id="seguranca">Segurança</h2>
+          <p>
+            Credenciais ficam no cofre criptografado do sistema operacional. Toda comunicação com serviços externos usa HTTPS. A conexão
+            com o Google usa OAuth com PKCE, sem que sua senha passe pelo app.
+          </p>
+
+          <h2 id="retencao">Retenção e exclusão</h2>
+          <p>
+            Seus dados ficam sob seu controle: apague notas no repositório, desconecte contas nos Ajustes ou desinstale o app para remover
+            os arquivos locais. Os registros de licença são mantidos pelo prazo legal e depois apagados.
+          </p>
+
+          <h2 id="direitos">Seus direitos</h2>
+          <p>
+            Pela LGPD, você pode pedir confirmação de tratamento, acesso, correção, anonimização, portabilidade e exclusão dos dados que
+            tratamos, além de revogar consentimentos. Escreva para o contato abaixo; respondemos em até 15 dias.
+          </p>
+
+          <h2 id="site">Este site</h2>
+          <p>
+            Este site é estático e não usa cookies, analytics nem armazenamento no navegador. A fonte tipográfica é carregada de um
+            serviço externo de fontes, e a hospedagem pode registrar dados técnicos de acesso (como o endereço IP) por segurança.
+          </p>
+
+          <h2 id="mudancas">Mudanças</h2>
+          <p>
+            Podemos atualizar esta política. A data de vigência no topo indica a versão atual. Mudanças relevantes, principalmente sobre
+            dados do Google, serão avisadas no app antes de valer.
+          </p>
+
+          <h2 id="contato">Contato</h2>
+          <p>Bruno Dias Donnici — <a href="mailto:bruno.dias.donnici@gmail.com">bruno.dias.donnici@gmail.com</a></p>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer footer--compact frame">
+      <div class="footer-top">
+        <div class="notes">
+          <a class="wordmark" href="./">Brain Notes</a>
+          <p>Notas, reuniões e ações em Markdown, no seu repositório.</p>
+        </div>
+        <a class="link" href="#">Voltar ao topo</a>
+      </div>
+      <h2 class="contact"><a href="mailto:bruno.dias.donnici@gmail.com">bruno.dias.donnici@gmail.com</a></h2>
+      <div class="footer-meta">
+        <nav aria-label="Rodapé">
+          <a class="link" href="docs.html">Documentação</a>
+          <a class="link" href="terms.html">Termos de Uso</a>
+          <a class="link" href="privacy.html">Política de Privacidade</a>
+        </nav>
+        <span class="center"></span>
+        <span class="right">© 2026 Bruno Dias Donnici. Todos os direitos reservados.</span>
+      </div>
+    </footer>
+  </body>
+</html>
