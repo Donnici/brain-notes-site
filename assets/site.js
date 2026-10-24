@@ -37,7 +37,7 @@ function reveal() {
   sweep();
 }
 
-// The hero window: the three top-bar areas switch, and the Brain AI answers the sample questions.
+// The hero window: the app bar switches destinations, and the Brain AI answers the sample questions.
 const ANSWERS = [
   {
     tools: '2 chamadas de ferramenta',
@@ -64,13 +64,42 @@ function wireApp() {
   if (!app) return;
   const tabs = app.querySelectorAll('[data-view]');
   const panes = app.querySelectorAll('[data-pane]');
-  const meetingsNav = app.querySelector('[data-for="meeting"]');
   const show = (view) => {
     tabs.forEach((t) => t.setAttribute('aria-selected', String(t.dataset.view === view)));
     panes.forEach((p) => (p.hidden = p.dataset.pane !== view));
-    meetingsNav?.classList.toggle('is-on', view === 'meeting');
   };
   tabs.forEach((t) => t.addEventListener('click', () => show(t.dataset.view)));
+
+  // The repository menu beside the Notetaker: Sincronizar, Ajustes, Trocar repositório, Sair.
+  const repo = document.getElementById('repo-toggle');
+  const menu = document.getElementById('repo-menu');
+  const openMenu = (open) => {
+    repo.setAttribute('aria-expanded', String(open));
+    menu.hidden = !open;
+  };
+  repo.addEventListener('click', (e) => {
+    e.stopPropagation();
+    openMenu(menu.hidden);
+  });
+  document.addEventListener('click', () => openMenu(false));
+  document.addEventListener('keydown', (e) => e.key === 'Escape' && openMenu(false));
+
+  // Actions: every checkbox ticks, the way it ticks the line in the note.
+  app.querySelectorAll('#action-list .w-box').forEach((box) => {
+    const row = box.closest('li');
+    const sync = () => {
+      const on = box.getAttribute('aria-pressed') === 'true';
+      box.classList.toggle('is-on', on);
+      row.classList.toggle('is-done', on);
+      box.setAttribute('aria-label', on ? 'Reabrir' : 'Concluir');
+      box.innerHTML = on ? '<svg class="i"><use href="#i-check" /></svg>' : '';
+    };
+    box.addEventListener('click', () => {
+      box.setAttribute('aria-pressed', String(box.getAttribute('aria-pressed') !== 'true'));
+      sync();
+    });
+    sync();
+  });
 
   const pane = app.querySelector('[data-pane="brain"]');
   const home = pane.querySelector('.b-home');
@@ -139,7 +168,16 @@ function wireStory() {
   steps.forEach((s) => io.observe(s));
 }
 
-// The record control: pressing it starts the clock and turns the field dark.
+// The record control: pressing it starts the clock, turns the field dark and the transcript fills in as people speak.
+const UTTERANCES = [
+  ['Chamada', 'Bom dia! Conseguiu ver o roteiro do vídeo?'],
+  ['Eu', 'Vi sim. Acho que a abertura pode ser mais curta.'],
+  ['Chamada', 'Concordo. Corto os primeiros vinte segundos.'],
+  ['Eu', 'Fechado. E a gravação fica para segunda?'],
+  ['Chamada', 'Segunda de manhã. Eu mando o convite.'],
+  ['Eu', 'Ótimo, já anoto como ação para você.'],
+];
+
 function wireRecord() {
   const button = document.getElementById('rec-toggle');
   if (!button) return;
@@ -147,11 +185,30 @@ function wireRecord() {
   const label = section.querySelector('[data-rec-label]');
   const time = section.querySelector('[data-rec-time]');
   const word = section.querySelector('[data-rec-word]');
+  const lines = section.querySelector('[data-live-lines]');
+  const state = section.querySelector('[data-live-state]');
+  const dot = section.querySelector('[data-live-dot]');
+  const meters = [...section.querySelectorAll('[data-meter]')];
   let started = 0;
   let timer = 0;
+  let next = 0;
+  const clock = (s) => `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`;
+  const line = ([who, text], at) => {
+    const li = document.createElement('li');
+    li.innerHTML = `<b>${who}</b><span class="w-time">${clock(at)}</span><p>${text}</p>`;
+    lines.append(li);
+    while (lines.children.length > 4) lines.firstElementChild.remove();
+  };
   const tick = () => {
     const s = Math.floor((Date.now() - started) / 1000);
-    time.textContent = `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`;
+    time.textContent = clock(s);
+    // A new utterance every few seconds, and the two level meters move with the voices.
+    if (next < UTTERANCES.length && s >= 1 + next * 3) {
+      if (next === 0) lines.textContent = '';
+      line(UTTERANCES[next], s);
+      next += 1;
+    }
+    meters.forEach((m) => m.style.setProperty('--level', (0.15 + Math.random() * 0.8).toFixed(2)));
   };
   button.addEventListener('click', () => {
     const on = button.getAttribute('aria-pressed') !== 'true';
@@ -159,13 +216,25 @@ function wireRecord() {
     section.classList.toggle('is-recording', on);
     label.textContent = on ? 'Gravando' : 'Gravar';
     word.textContent = on ? 'Gravando' : 'Grave';
+    dot.classList.toggle('is-live', on);
     clearInterval(timer);
     if (on) {
       started = Date.now();
+      next = 0;
+      state.textContent = 'Ouvindo…';
+      lines.innerHTML = '<li class="live-hint">Ouvindo… as falas aparecem aqui assim que forem ditas.</li>';
+      if (reduced) {
+        lines.textContent = '';
+        UTTERANCES.slice(-4).forEach((u, i) => line(u, 4 + i * 5));
+        next = UTTERANCES.length;
+      }
       tick();
-      timer = setInterval(tick, 1000);
+      timer = setInterval(tick, 500);
     } else {
       time.textContent = '00:00';
+      meters.forEach((m) => m.style.removeProperty('--level'));
+      state.textContent = 'Separando falantes e resumindo…';
+      setTimeout(() => button.getAttribute('aria-pressed') !== 'true' && (state.textContent = 'Reunião pronta'), 1800);
     }
   });
 }
@@ -174,34 +243,62 @@ function wireRecord() {
 const SCOPES = {
   app: {
     ask: 'Adicione o filtro por label na lista de ações',
-    say: 'Encontrei o componente da lista. Vou adicionar o filtro e rodar os testes.',
-    Perguntar: 'A lista é filtrada em actions-list.tsx, e a label escolhida vem da barra de filtros. Quer que eu faça a mudança?',
-    Planejar: 'Plano: 1) guardar a label no estado da lista; 2) filtrar no componente; 3) cobrir com dois testes. Posso começar?',
+    say: 'Encontrei o componente da lista. Quero adicionar o filtro: posso editar o arquivo?',
+    done: 'Adicionei o filtro. Vou rodar os testes da lista.',
+    plan: 'Plano: 1) guardar a label no estado da lista; 2) filtrar no componente; 3) cobrir com dois testes. Posso começar?',
+    file: 'actions-list.tsx',
+    stat: ['+12', '−3'],
+    diff: [['del', '-  const visible = actions'], ['add', '+  const visible = actions.filter('], ['add', '+    (a) => !label || a.labels.includes(label),'], ['add', '+  )']],
     cmd: 'pnpm test actions',
     out: ' ✓ filtra por label (4 ms)\n ✓ mantém a ordem por prazo (2 ms)\n Tests  24 passed', // taste-skill-ignore: terminal output
+    result: '24 testes passaram',
+    bg: 'pnpm dev',
+  },
+  livro: {
+    ask: 'Reescreva a abertura do capítulo 3 com as falas da entrevista',
+    say: 'Li a entrevista e o capítulo 3. Posso editar a abertura?',
+    done: 'Reescrevi a abertura com duas falas da Marta. Vou contar as palavras do capítulo.',
+    plan: 'Plano: 1) separar as três melhores falas da entrevista; 2) reescrever os dois primeiros parágrafos; 3) manter o capítulo abaixo de 5 mil palavras. Posso começar?',
+    file: 'Capítulo 3 - A volta.md',
+    stat: ['+6', '−4'],
+    diff: [['add', '+ “Eu voltei porque ninguém mais lembrava”,'], ['add', '+ disse Marta, ainda na porta.'], ['del', '- Naquela manhã, a cidade inteira dormia.'], ['add', '+ Naquela manhã, só a padaria estava acesa.']],
+    cmd: 'wc -w "Capítulo 3 - A volta.md"',
+    out: ' 4812 Capítulo 3 - A volta.md',
+    result: '4.812 palavras',
+    bg: 'pandoc capitulos -o livro.pdf',
   },
   api: {
     ask: 'Crie o endpoint que lista as ações por projeto',
-    say: 'Criei a rota e o teste de contrato. Vou rodar a suíte da api.',
-    Perguntar: 'As ações já são lidas em actions/repository.ts; falta só expor a rota com o filtro por projeto. Quer que eu crie?',
-    Planejar: 'Plano: 1) rota GET /projects/:id/actions; 2) consulta no repositório; 3) teste de contrato. Posso começar?',
+    say: 'As ações já são lidas em actions/repository.ts. Posso criar a rota e o teste?',
+    done: 'Criei a rota e o teste de contrato. Vou rodar a suíte da api.',
+    plan: 'Plano: 1) rota GET /projects/:id/actions; 2) consulta no repositório; 3) teste de contrato. Posso começar?',
+    file: 'projects.routes.ts',
+    stat: ['+18', '−0'],
+    diff: [['add', "+ app.get('/projects/:id/actions', async (c) => {"], ['add', "+   const id = c.req.param('id')"], ['add', '+   return c.json(await actions.byProject(id))'], ['add', '+ })']],
     cmd: 'pnpm test api',
     out: ' ✓ lista as ações do projeto (11 ms)\n ✓ responde 404 sem projeto (3 ms)\n Tests  58 passed', // taste-skill-ignore: terminal output
+    result: '58 testes passaram',
+    bg: 'pnpm dev:api',
   },
   site: {
     ask: 'Atualize a página de preços com o novo plano',
-    say: 'Atualizei o texto e a tabela de planos. Vou gerar o build para conferir.',
-    Perguntar: 'Os preços ficam em pricing.html e a tabela vem de plans.json. Quer que eu inclua o novo plano?',
-    Planejar: 'Plano: 1) incluir o plano em plans.json; 2) revisar o texto da página; 3) gerar o build. Posso começar?',
+    say: 'Os preços ficam em pricing.html e a tabela vem de plans.json. Posso incluir o novo plano?',
+    done: 'Atualizei o texto e a tabela de planos. Vou gerar o build para conferir.',
+    plan: 'Plano: 1) incluir o plano em plans.json; 2) revisar o texto da página; 3) gerar o build. Posso começar?',
+    file: 'plans.json',
+    stat: ['+7', '−1'],
+    diff: [['del', '-  ]'], ['add', '+  ,{ "nome": "Equipe",'], ['add', '+     "licencas": 5 }'], ['add', '+  ]']],
     cmd: 'npm run build',
     out: ' ✓ 4 páginas geradas\n ✓ links conferidos\n build pronto em 2,1 s', // taste-skill-ignore: terminal output
+    result: 'build pronto em 2,1 s',
+    bg: 'npm run preview',
   },
 };
-const STATES = [
-  ['Aguardando você', 'dot--wait'],
-  ['Trabalhando', 'dot--work'],
-  ['Concluído', ''],
-];
+const STATES = {
+  wait: ['Aguardando você', 'dot--wait'],
+  work: ['Trabalhando', 'dot--work'],
+  done: ['Concluído', ''],
+};
 
 function wireAgents() {
   const form = document.getElementById('agent-controls');
@@ -211,33 +308,46 @@ function wireAgents() {
 
   const render = () => {
     const data = new FormData(form);
-    const scope = SCOPES[data.get('scope')];
+    const key = data.get('scope');
+    const scope = SCOPES[key];
     const mode = data.get('mode');
-    const effort = data.get('effort');
-    const flow = data.get('flow');
-    const editing = mode === 'Editar';
-    const asksPermission = data.get('perm') === 'on';
     const terminal = data.get('term') === 'on';
+    const background = data.get('bg') === 'on';
     const count = Number(data.get('count'));
 
-    $('[data-agent-ask]').textContent = scope.ask;
-    $('[data-agent-meta]').textContent = `${mode} · Modelo padrão · Esforço ${effort}`;
-    $('[data-agent-say]').textContent = editing ? scope.say : scope[mode];
-    $('[data-side="term"] code').textContent = `$ ${scope.cmd}\n${scope.out}`;
-    $('[data-cmd]').textContent = scope.cmd;
-    $('[data-perm]').hidden = !editing || !asksPermission;
-    const auto = $('[data-auto]');
-    auto.hidden = !editing || asksPermission;
-    auto.querySelector('span').textContent = `${scope.cmd} · ${scope.out.split('\n').pop().trim()}`;
-    const flowChip = $('[data-flow]');
-    flowChip.hidden = !flow;
-    flowChip.textContent = flow ? `001-filtro-por-label · ${flow}` : '';
+    // What each mode does with the same request: ask before editing, ask before the command, only plan, or just run.
+    const asksEdit = mode === 'Perguntar';
+    const asksCommand = mode === 'Aceitar edições';
+    const plans = mode === 'Planejar';
+    const runs = mode === 'Auto' || mode === 'Acesso total';
+    const edited = !asksEdit && !plans;
 
-    const names = [data.get('scope'), ...Object.keys(SCOPES).filter((k) => k !== data.get('scope')), 'docs'].slice(0, count);
+    $('[data-agent-ask]').textContent = scope.ask;
+    $('[data-agent-meta]').textContent = `${mode} · Modelo padrão · Esforço ${data.get('effort')} · ${data.get('account')}`;
+    $('[data-agent-say]').textContent = plans ? scope.plan : asksEdit ? scope.say : scope.done;
+    $('[data-perm]').hidden = !(asksEdit || asksCommand);
+    $('[data-perm-title]').textContent = asksEdit ? `Editar ${scope.file}` : 'Rodar comando';
+    $('[data-cmd]').textContent = asksEdit ? `${scope.stat[0]} ${scope.stat[1]} linhas` : scope.cmd;
+    const auto = $('[data-auto]');
+    auto.hidden = !runs;
+    auto.querySelector('span').textContent = `${scope.cmd} · ${scope.result}`;
+    $('[data-bg]').hidden = !background;
+    $('[data-bg-cmd]').textContent = scope.bg;
+
+    $('[data-diff-file]').textContent = edited ? scope.file : 'Nenhuma alteração ainda';
+    $('[data-diff-add]').textContent = edited ? scope.stat[0] : '';
+    $('[data-diff-del]').textContent = edited ? scope.stat[1] : '';
+    $('[data-diff]').innerHTML = edited ? scope.diff.map(([cls, text]) => `<span class="${cls}">${escape(text)}</span>`).join('') : '';
+    $('.as-diff .w-diff').hidden = !edited;
+    $('[data-side="term"] code').textContent = `$ ${scope.cmd}\n${scope.out}`;
+
+    const first = runs ? STATES.work : STATES.wait;
+    const names = [key, ...Object.keys(SCOPES).filter((k) => k !== key)].slice(0, count);
     $('[data-agent-list]').innerHTML = names
       .map((name, i) => {
-        const [text, cls] = i === 0 ? (editing && asksPermission ? STATES[0] : STATES[1]) : STATES[(i % 2) + 1];
-        return `<li class="${i === 0 ? 'is-on' : ''}"><svg class="i"><use href="#i-bot" /></svg><span><b>${name}</b><small><i class="dot ${cls}"></i>${text}</small></span></li>`;
+        const [text, cls] = i === 0 ? first : i % 2 ? STATES.work : STATES.done;
+        const badge = i === 0 && background ? '<b class="w-badge" title="1 em segundo plano">1</b>' : '';
+        return `<li class="${i === 0 ? 'is-on' : ''}"><svg class="i"><use href="#i-bot" /></svg><span><b>${name}</b><small><i class="dot ${cls}"></i>${text}</small></span>${badge}</li>`;
       })
       .join('');
 
@@ -245,6 +355,7 @@ function wireAgents() {
     stage.classList.toggle('show-side', terminal);
   };
 
+  const escape = (text) => text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   const setSide = (which) => {
     stage.querySelectorAll('[data-side-tab]').forEach((t) => t.setAttribute('aria-selected', String(t.dataset.sideTab === which)));
     stage.querySelectorAll('[data-side]').forEach((p) => (p.hidden = p.dataset.side !== which));

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Documentação Brain Notes</title>
-    <meta name="description" content="Como instalar e usar o Brain Notes: notas, histórico, reuniões, agenda, ações, Brain AI e Agentes." />
+    <meta name="description" content="Como instalar e usar o Brain Notes: pasta local, notas, sincronização, reuniões com transcrição ao vivo, agenda, ações, Brain AI, modos de permissão e Agentes." />
     <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -35,13 +35,16 @@
           <h2>Nesta página</h2>
           <ol>
             <li><a href="#primeiros-passos">Primeiros passos</a></li>
+            <li><a href="#app">O app</a></li>
             <li><a href="#notas">Notas</a></li>
+            <li><a href="#organizar">Organizar pelo método PARA</a></li>
             <li><a href="#historico">Histórico e sincronização</a></li>
             <li><a href="#reunioes">Reuniões</a></li>
             <li><a href="#agenda">Agenda</a></li>
-            <li><a href="#templates">Templates de resumo</a></li>
+            <li><a href="#templates">Templates e modelos locais</a></li>
             <li><a href="#acoes">Ações e lembretes</a></li>
             <li><a href="#brain-ai">Brain AI</a></li>
+            <li><a href="#modos">Modos de permissão</a></li>
             <li><a href="#agentes">Agentes</a></li>
             <li><a href="#dados">Onde ficam seus dados</a></li>
             <li><a href="#atalhos">Atalhos</a></li>
@@ -62,42 +65,89 @@
               acesso pedido é o de leitura e escrita nos seus repositórios, para guardar suas notas.
             </li>
             <li>
-              <strong>Escolha o repositório das notas.</strong> Pode ser um repositório vazio ou um que já tenha arquivos Markdown. O app
-              faz uma cópia local e funciona offline.
+              <strong>Escolha o repositório das notas.</strong> Pode ser um repositório vazio ou um que já tenha arquivos Markdown.
+            </li>
+            <li>
+              <strong>Escolha onde guardar as notas.</strong> O app trabalha direto numa pasta do seu computador: escolha uma pasta vazia
+              para clonar ou, se você já tem uma cópia do repositório, use <em>Já tenho uma cópia</em>.
+            </li>
+            <li>
+              <strong>Autorize a publicação.</strong> Na primeira sincronização, o app pede uma vez, para aquela pasta, licença para
+              registrar versões e enviar ao GitHub com o git e as credenciais do seu computador.
+            </li>
+            <li>
+              <strong>Configure o repositório (opcional).</strong> O app oferece instalar a skill <code>/organizar</code>, que a Brain AI
+              usa para organizar as notas. Se você usa o mix-dev-skills, pode incluir também as skills de desenvolvimento.
             </li>
           </ol>
-          <div class="note"><p>Nada do que você cria fica em servidores do Brain Notes. Suas notas vivem no seu repositório e na cópia local do seu computador.</p></div>
+          <div class="note"><p>Nada do que você cria fica em servidores do Brain Notes. Suas notas vivem na pasta do seu computador e no seu repositório.</p></div>
+
+          <h2 id="app">O app</h2>
+          <p>
+            Uma barra no topo leva a todos os destinos: <strong>Brain AI</strong>, <strong>Notas</strong>, <strong>Reuniões</strong>,
+            <strong>Ações</strong>, <strong>Lembretes</strong>, <strong>Projetos</strong> e <strong>Agentes</strong>. À direita ficam a
+            busca, o botão <strong>Notetaker</strong> e o menu do repositório, que mostra o estado da sincronização e reúne
+            <em>Sincronizar</em>, <em>Ajustes</em>, <em>Trocar repositório</em> e <em>Sair</em>. Em janelas estreitas, a barra mostra só os
+            ícones.
+          </p>
+          <p>Os Ajustes são organizados em abas: agenda, reuniões, modelos locais, anexos, itens ocultos, modos padrão e mais.</p>
 
           <h2 id="notas">Notas</h2>
           <p>
             Cada nota é um arquivo <code>.md</code>. O editor em blocos grava Markdown e preserva exatamente o que você não editou, então o
-            histórico só mostra as suas mudanças.
+            histórico só mostra as suas mudanças. Na tela de Notas, a árvore de pastas fica à esquerda e pode ser recolhida.
           </p>
           <ul>
             <li><strong>Propriedades</strong>: o cabeçalho YAML (frontmatter) aparece como um painel editável.</li>
             <li><strong>Links</strong>: <code>[[Outra nota]]</code> liga notas entre si; <code>#tag</code> agrupa por assunto.</li>
             <li><strong>Código-fonte</strong>: alterne para ver e editar o Markdown cru a qualquer momento.</li>
-            <li><strong>Imagens</strong>: cole ou arraste; o arquivo vai para o repositório junto da nota.</li>
+            <li><strong>Imagens</strong>: cole ou arraste; o arquivo vai para a pasta de anexos do repositório, que você escolhe em <em>Ajustes</em>.</li>
+            <li><strong>Outros arquivos de texto</strong>: JSON, YAML e arquivos sem extensão, como <code>.gitignore</code> e <code>LICENSE</code>, abrem no mesmo editor. Blocos de código guardam a linguagem.</li>
+            <li>
+              <strong>Ocultar</strong>: clique com o botão direito numa pasta ou num arquivo da árvore e escolha <em>Ocultar</em>. Ele sai da
+              árvore e da busca, mas continua no repositório, e a Brain AI ainda pode lê-lo. Reexiba em <em>Ajustes → Itens ocultos</em>.
+            </li>
           </ul>
+
+          <h2 id="organizar">Organizar pelo método PARA</h2>
+          <p>
+            Com a skill <code>/organizar</code> instalada, peça à Brain AI para organizar o repositório. Ela lê as notas, faz as perguntas
+            necessárias e apresenta o plano completo: Projetos, Áreas, Recursos e Arquivo, com o destino e o motivo de cada nota. Pastas e
+            notas recebem nomes legíveis, sem códigos. Nada é movido antes do seu ok, e nada é excluído: o que sai de uso vai para o
+            Arquivo.
+          </p>
 
           <h2 id="historico">Histórico e sincronização</h2>
           <p>
-            O painel de versões lista as alterações ainda não sincronizadas, com o diff de cada uma. <strong>Sincronizar</strong> grava,
-            busca as mudanças de outros aparelhos e envia as suas. Cada nota tem seu histórico completo.
+            O painel de sincronização lista as alterações ainda não enviadas, com o diff de cada uma. <strong>Sincronizar</strong> grava,
+            busca as mudanças de outros aparelhos e envia as suas, no ramo em que a pasta está. Cada nota tem seu histórico completo.
           </p>
-          <p>
-            Se a mesma nota mudou em dois lugares, o app junta o que dá automaticamente e mostra o restante lado a lado para você escolher.
-          </p>
+          <ul>
+            <li>O app usa o git e as credenciais do seu computador; o token do GitHub só entra quando o acesso é por HTTPS e não há outra credencial.</li>
+            <li>O trabalho local nunca é descartado. Se o git estiver no meio de outra operação, a sincronização espera.</li>
+            <li>Mudanças feitas fora do app, em outro editor ou no terminal, aparecem sozinhas.</li>
+            <li>Se a mesma nota mudou em dois lugares, o app junta o que dá e mostra o restante lado a lado para você escolher.</li>
+            <li>O app busca novidades a cada 5 minutos e mostra o progresso na barra.</li>
+          </ul>
 
           <h2 id="reunioes">Reuniões</h2>
           <p>
             O botão <strong>Notetaker</strong>, na barra do topo, abre a janela de gravação. Quando uma chamada começa, o Brain Notes
-            <strong>pergunta</strong> se deve gravar — ele nunca grava sozinho. A gravação capta o microfone e o áudio do sistema e pode
-            ser pausada; enquanto ela roda, o mesmo botão traz a janela de volta.
+            <strong>pergunta</strong> se deve gravar — ele nunca grava sozinho. A gravação capta o microfone e o áudio do sistema, pode ser
+            pausada e a janela pode ficar por cima das outras.
           </p>
           <ul>
-            <li>Transcrição, separação de falantes e resumo rodam <strong>no seu computador</strong>. Os modelos são baixados uma vez.</li>
+            <li>
+              <strong>Transcrição ao vivo</strong>: as falas aparecem na aba <em>Transcrição</em> enquanto a reunião acontece, separadas
+              entre você e a chamada. Você pode corrigir ou comentar uma fala. Ao parar, só faltam a separação de falantes e o resumo.
+            </li>
+            <li>Transcrição, falantes e resumo rodam <strong>no seu computador</strong>. A transcrição ao vivo pode ser desligada em <em>Ajustes</em>.</li>
             <li>O resultado são duas notas: o resumo e a transcrição. O áudio é <strong>apagado</strong> logo depois de transcrito.</li>
+            <li>
+              <strong>Sem gravar</strong>: <em>Nova reunião</em> cria a nota com título, data, participantes e template. Depois, cole a
+              transcrição ou importe um arquivo <code>.txt</code>, <code>.md</code>, <code>.vtt</code> ou <code>.srt</code>, ou um áudio, que
+              é transcrito no seu computador.
+            </li>
             <li>No macOS, a primeira gravação pede acesso ao microfone e à gravação de tela e áudio do sistema (macOS 14.2 ou superior). Sem esse acesso, só o microfone é gravado.</li>
           </ul>
 
@@ -111,11 +161,16 @@
           </ul>
           <p>Detalhes sobre os dados da agenda estão na <a href="privacy.html#google">Política de Privacidade</a>.</p>
 
-          <h2 id="templates">Templates de resumo</h2>
+          <h2 id="templates">Templates e modelos locais</h2>
           <p>
             O formato do resumo de cada reunião vem de um Template: um arquivo Markdown em <code>.brain-notes/templates/</code> no seu
-            repositório. O app traz modelos prontos que você pode duplicar e ajustar. Por padrão o resumo é feito localmente; você pode
-            optar por usar o provedor de IA conectado.
+            repositório. O app traz modelos prontos que você pode duplicar e ajustar, e você pode refazer um resumo com outro Template.
+          </p>
+          <p>
+            Por padrão, transcrição e resumo usam modelos que rodam no seu computador, baixados uma vez. Em <em>Ajustes</em>, a seção de
+            modelos locais mostra o que está instalado e o espaço em disco, e deixa baixar ou remover cada modelo. Se preferir, o resumo
+            pode ser feito pelo provedor de IA conectado; nesse caso, a transcrição e as suas anotações são enviadas a ele, e o áudio nunca
+            sai do computador.
           </p>
 
           <h2 id="acoes">Ações e lembretes</h2>
@@ -136,7 +191,8 @@
           <h2 id="brain-ai">Brain AI</h2>
           <p>
             A Brain AI é a tela inicial do app: um chat sobre o seu repositório de notas, com as próximas reuniões da agenda e as
-            reuniões recentes logo acima. Você também chega a ela pelo botão <em>Perguntar à Brain AI</em> de qualquer nota.
+            reuniões recentes logo acima. Você também chega a ela pelo botão <em>Perguntar à Brain AI</em> de qualquer nota e pelo painel
+            da Brain AI no Notetaker.
           </p>
           <h3>Perguntar</h3>
           <ul>
@@ -144,25 +200,48 @@
             <li>As respostas citam as notas usadas. Clicar na citação abre a nota na linha citada.</li>
             <li>As ferramentas que a Brain AI usou para procurar ficam recolhidas na resposta; abra para ver o que foi lido.</li>
             <li>Quando a resposta não está nas notas, ela diz isso primeiro, e marca o que veio de fora.</li>
+            <li><strong>Anexos</strong>: anexe prints, planilhas, PDFs e outros arquivos à mensagem, até 10 por mensagem e 50 MB cada. Eles valem só para aquela conversa e não entram no repositório.</li>
+            <li><strong>Ditado</strong>: o botão do microfone transforma a sua voz em texto no próprio computador.</li>
             <li>Digite <kbd>/</kbd> no campo da mensagem para usar uma skill, como rascunhar um projeto ou escrever um e-mail de follow-up.</li>
           </ul>
           <h3>Escrever e editar</h3>
           <ul>
             <li>Notas novas criadas pela Brain AI vão para a pasta <code>inbox/</code>.</li>
-            <li>Editar uma nota existente sempre pede sua permissão, com a mudança à vista. Você pode negar com um motivo.</li>
+            <li>O que ela pode mudar sem perguntar depende do <a href="#modos">modo de permissão</a>. No modo padrão, editar uma nota existente pede sua permissão, com a mudança à vista. Você pode negar com um motivo.</li>
             <li>A Brain AI nunca sincroniza o histórico: gravar e enviar continua sendo decisão sua.</li>
           </ul>
           <h3>Conversas</h3>
           <p>
-            As conversas ficam na tela inicial e podem ser retomadas ou arquivadas. Elas são guardadas em arquivos locais do app, no seu
-            computador.
+            As conversas ficam na tela inicial e podem ser retomadas ou arquivadas. Cada uma guarda o seu rascunho. Elas são guardadas em
+            arquivos locais do app, no seu computador.
           </p>
           <div class="note"><p>A Brain AI usa o provedor de IA que <strong>você</strong> conecta com a sua própria conta. O conteúdo só é enviado quando você manda uma mensagem, e o Brain Notes não guarda essa credencial.</p></div>
 
+          <h2 id="modos">Modos de permissão</h2>
+          <p>
+            A Brain AI e os Agentes usam o mesmo menu de modo, no campo da mensagem. O padrão de cada área fica em <em>Ajustes</em> e vale
+            para conversas novas.
+          </p>
+          <table>
+            <thead><tr><th>Modo</th><th>O que faz sem perguntar</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Perguntar</strong> (padrão)</td><td>Lê, lista e busca no repositório. Pergunta antes de criar, editar ou rodar comandos.</td></tr>
+              <tr><td><strong>Aceitar edições</strong></td><td>Também cria e edita arquivos no repositório. Comandos ainda pedem permissão.</td></tr>
+              <tr><td><strong>Planejar</strong></td><td>Só investiga e propõe um plano, sem alterar nada.</td></tr>
+              <tr><td><strong>Auto</strong></td><td>O provedor decide sozinho e pergunta nas ações arriscadas. Nem todo modelo ou conta oferece.</td></tr>
+              <tr><td><strong>Acesso total</strong></td><td>Faz tudo sem perguntar, em qualquer pasta, exceto em locais sensíveis. Ativar mostra um aviso, todas as vezes.</td></tr>
+            </tbody>
+          </table>
+          <p>
+            Em qualquer modo, locais sensíveis (chaves, credenciais e pastas do sistema) sempre pedem permissão, e as regras de negar do
+            projeto e do CLI continuam valendo.
+          </p>
+
           <h2 id="agentes">Agentes</h2>
           <p>
-            No desktop, o botão <strong>Agentes</strong> da barra do topo abre uma área para rodar vários agentes de IA em paralelo, cada
-            um num projeto seu. Os agentes usam a conta do provedor de IA que você já tem, conectada no seu próprio computador.
+            No desktop, o destino <strong>Agentes</strong> abre uma área para rodar vários agentes de IA em paralelo, cada um numa pasta sua:
+            um app, um site, um livro ou qualquer outro projeto. Os agentes usam o Claude Code ou o Codex instalados no seu computador, com a
+            sua própria assinatura.
           </p>
           <h3>Conectar</h3>
           <p>
@@ -171,36 +250,35 @@
           </p>
           <h3>Trabalhar com um agente</h3>
           <ul>
-            <li><strong>Novo agente</strong> pede o projeto em que ele vai trabalhar. Cada agente aparece na lista com o seu estado: trabalhando, aguardando você ou concluído.</li>
-            <li>Para cada mensagem, escolha o modo (<em>Perguntar</em>, <em>Planejar</em> ou <em>Editar</em>), o modelo e o esforço.</li>
-            <li>Comandos e alterações pedem permissão por ferramenta, mostrando o comando exato. Você pode permitir uma vez, permitir sempre naquela conversa ou negar com um motivo.</li>
+            <li><strong>Novo agente</strong> pede a pasta em que ele vai trabalhar. Use <em>Escolher pasta…</em> para qualquer pasta, sem configuração. Quem usa o mix-dev-skills também vê os projetos do hub.</li>
+            <li><strong>Conta do Claude</strong>: cada agente pode usar uma pasta de configuração diferente (<code>CLAUDE_CONFIG_DIR</code>), com o login, os servidores MCP e os ajustes daquela conta.</li>
+            <li>Cada agente aparece na lista com o seu estado: trabalhando, aguardando você ou concluído.</li>
+            <li>Para cada mensagem, escolha o <a href="#modos">modo</a>, o modelo e o esforço. O que o modo não libera pede permissão, mostrando o comando exato.</li>
+            <li>A faixa <em>Em segundo plano</em> mostra os comandos e sub-agentes que continuam rodando, com a saída de cada um. Itens concluídos saem sozinhos depois de um minuto.</li>
             <li>O painel <em>Alterações</em> mostra cada arquivo que o agente mudou, com o diff. O painel <em>Terminal</em> abre terminais na pasta do projeto, que continuam rodando quando você troca de agente.</li>
             <li><em>Parar</em> interrompe o turno; a conversa aceita a próxima mensagem em seguida.</li>
-            <li>Agentes podem ser fixados no topo da lista ou arquivados.</li>
+            <li>Agentes podem ser fixados no topo, arquivados ou removidos. Arquivar ou remover encerra a sessão do provedor.</li>
           </ul>
-          <h3>Passos do fluxo</h3>
-          <p>
-            Para projetos organizados em especificações, o menu <em>Passos do fluxo</em> insere o comando de cada etapa (Specify, Clarify,
-            Plan, Tasks, Analyze e Implement), já apontando para a especificação escolhida, e o cabeçalho da conversa mostra a etapa atual.
-          </p>
 
           <h2 id="dados">Onde ficam seus dados</h2>
           <table>
             <thead><tr><th>Dado</th><th>Onde fica</th></tr></thead>
             <tbody>
-              <tr><td>Notas, resumos, transcrições, ações, Templates</td><td>Seu repositório e a cópia local</td></tr>
-              <tr><td>Áudio das reuniões</td><td>Só no seu computador, até terminar a transcrição</td></tr>
+              <tr><td>Notas, resumos, transcrições, ações, Templates, anexos das notas</td><td>A pasta que você escolheu e o seu repositório</td></tr>
+              <tr><td>Áudio das reuniões e do ditado</td><td>Só no seu computador, até terminar a transcrição</td></tr>
+              <tr><td>Modelos de transcrição e resumo</td><td>Pasta do app no seu computador, até você remover</td></tr>
               <tr><td>Credenciais (GitHub, Google)</td><td>Cofre do sistema operacional, no seu computador</td></tr>
               <tr><td>Eventos da agenda</td><td>Cache local, apagado ao desconectar</td></tr>
-              <tr><td>Conversas da Brain AI e dos Agentes</td><td>Arquivos locais do app</td></tr>
+              <tr><td>Conversas da Brain AI e dos Agentes, rascunhos e anexos das conversas</td><td>Arquivos locais do app</td></tr>
             </tbody>
           </table>
 
           <h2 id="atalhos">Atalhos</h2>
           <table>
             <tbody>
-              <tr><td><kbd>⌘</kbd> <kbd>K</kbd> / <kbd>Ctrl</kbd> <kbd>K</kbd></td><td>Buscar notas e comandos</td></tr>
+              <tr><td><kbd>⌘</kbd> <kbd>K</kbd> / <kbd>Ctrl</kbd> <kbd>K</kbd></td><td>Buscar notas, reuniões e comandos</td></tr>
               <tr><td><kbd>/</kbd> na Brain AI ou num agente</td><td>Usar uma skill ou um comando</td></tr>
+              <tr><td><kbd>/</kbd> nas notas do Notetaker</td><td>Inserir um template</td></tr>
               <tr><td><kbd>Enter</kbd> / <kbd>Shift</kbd> <kbd>Enter</kbd></td><td>Enviar a mensagem / quebrar a linha</td></tr>
             </tbody>
           </table>

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Brain Notes</title>
-    <meta name="description" content="Notas, reuniões e ações em Markdown no seu repositório Git, com a Brain AI respondendo sobre tudo e agentes de IA trabalhando em paralelo." />
+    <meta name="description" content="Notas, reuniões e ações em Markdown numa pasta do seu computador, versionada no Git, com a Brain AI respondendo sobre tudo e agentes de IA trabalhando em qualquer pasta sua." />
     <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,21 +26,29 @@
       <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
       <symbol id="i-branch" viewBox="0 0 24 24"><path d="M6 3v12"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></symbol>
       <symbol id="i-send" viewBox="0 0 24 24"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></symbol>
-      <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.940l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+      <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.940l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.940l-3.76 3.76z"/></symbol>
       <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
       <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
       <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
       <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+      <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
       <symbol id="i-back" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
       <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
       <symbol id="i-terminal" viewBox="0 0 24 24"><path d="m4 17 6-6-6-6M12 19h8"/></symbol>
-      <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></symbol>
+      <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></symbol>
+      <symbol id="i-clip" viewBox="0 0 24 24"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></symbol>
+      <symbol id="i-sync" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></symbol>
+      <symbol id="i-swap" viewBox="0 0 24 24"><path d="M8 3 4 7l4 4M4 7h16"/><path d="m16 21 4-4-4-4M20 17H4"/></symbol>
+      <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/></symbol>
+      <symbol id="i-image" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></symbol>
+      <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.510-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></symbol>
     </svg>
 
     <header class="bar frame">
       <a class="wordmark" href="./"><img src="assets/icon.svg" alt="" width="28" height="28" />Brain Notes</a>
       <nav aria-label="Principal">
         <a href="#brain">Brain AI</a>
+        <a href="#notetaker">Reuniões</a>
         <a href="#agentes">Agentes</a>
         <a href="docs.html">Documentação</a>
       </nav>
@@ -53,8 +61,8 @@
         <div class="hero-copy">
           <h1 id="hero-title" data-reveal>Notas que respondem.</h1>
           <p class="lead" data-reveal style="--i: 1">
-            Brain Notes guarda notas, reuniões e ações em Markdown no seu repositório Git. A Brain AI responde citando as notas, e os
-            agentes trabalham nos seus projetos.
+            Brain Notes guarda notas, reuniões e ações em Markdown numa pasta do seu computador, versionada no Git. A Brain AI responde
+            citando as notas, e os agentes trabalham em qualquer pasta sua.
           </p>
           <div class="hero-actions" data-reveal style="--i: 2">
             <a class="button" href="#licenca">Solicitar licença</a>
@@ -65,74 +73,110 @@
         <div class="window" data-ui data-reveal style="--i: 3" id="app">
           <div class="w-top">
             <div class="w-lights" aria-hidden="true"><i></i><i></i><i></i></div>
-            <div class="w-modes" role="tablist" aria-label="Áreas do app">
-              <button role="tab" aria-selected="true" data-view="brain"><svg class="i"><use href="#i-sparkles" /></svg>Brain AI</button>
-              <button role="tab" aria-selected="false" data-view="meeting"><svg class="i"><use href="#i-pen" /></svg>Notetaker</button>
-              <button role="tab" aria-selected="false" data-view="agents"><svg class="i"><use href="#i-bot" /></svg>Agentes</button>
+            <img class="w-logo" src="assets/icon.svg" alt="" width="22" height="22" />
+            <div class="w-modes" role="tablist" aria-label="Destinos do app">
+              <button role="tab" aria-selected="true" data-view="brain"><svg class="i"><use href="#i-sparkles" /></svg><span>Brain AI</span></button>
+              <button role="tab" aria-selected="false" data-view="notes"><svg class="i"><use href="#i-file" /></svg><span>Notas</span></button>
+              <button role="tab" aria-selected="false" data-view="meeting"><svg class="i"><use href="#i-calendar" /></svg><span>Reuniões</span></button>
+              <button role="tab" aria-selected="false" data-view="actions"><svg class="i"><use href="#i-check-circle" /></svg><span>Ações</span></button>
+              <button role="tab" aria-selected="false" data-view="agents"><svg class="i"><use href="#i-bot" /></svg><span>Agentes</span></button>
+            </div>
+            <div class="w-right">
+              <span class="w-icon" aria-hidden="true"><svg class="i"><use href="#i-search" /></svg></span>
+              <span class="w-btn w-btn--rec w-note"><i></i><span>Notetaker</span></span>
+              <div class="w-repo">
+                <button type="button" class="w-btn" aria-expanded="false" aria-haspopup="menu" id="repo-toggle">
+                  <svg class="i"><use href="#i-folder" /></svg><span class="w-repo-name">segundo-cerebro</span><b class="w-badge">2</b><svg class="i w-muted"><use href="#i-down" /></svg>
+                </button>
+                <ul class="w-menu" role="menu" id="repo-menu" hidden>
+                  <li role="menuitem"><svg class="i"><use href="#i-sync" /></svg>Sincronizar<span class="w-count">2 notas</span></li>
+                  <li role="menuitem"><svg class="i"><use href="#i-settings" /></svg>Ajustes</li>
+                  <li role="menuitem"><svg class="i"><use href="#i-swap" /></svg>Trocar repositório</li>
+                  <li role="menuitem"><svg class="i"><use href="#i-logout" /></svg>Sair</li>
+                </ul>
+              </div>
             </div>
           </div>
           <div class="w-body">
-            <aside class="w-side">
-              <div class="w-brand"><img src="assets/icon.svg" alt="" width="20" height="20" />Brain Notes<svg class="i w-muted"><use href="#i-search" /></svg></div>
-              <ul class="w-nav">
-                <li><svg class="i"><use href="#i-file" /></svg>Notas</li>
-                <li data-for="meeting"><svg class="i"><use href="#i-calendar" /></svg>Reuniões</li>
-                <li><svg class="i"><use href="#i-check-circle" /></svg>Ações<span class="w-count">4</span></li>
-                <li><svg class="i"><use href="#i-bell" /></svg>Lembretes</li>
-                <li><svg class="i"><use href="#i-folder" /></svg>Projetos</li>
-              </ul>
-              <p class="w-caption">Notas</p>
-              <ul class="w-tree">
-                <li><svg class="i w-muted"><use href="#i-chevron" /></svg><svg class="i"><use href="#i-folder" /></svg>projetos</li>
-                <li><svg class="i w-muted"><use href="#i-chevron" /></svg><svg class="i"><use href="#i-folder" /></svg>reunioes</li>
-                <li class="w-leaf"><svg class="i"><use href="#i-file" /></svg>Ideias</li>
-                <li class="w-leaf"><svg class="i"><use href="#i-file" /></svg>README</li>
-              </ul>
-              <ul class="w-nav w-foot">
-                <li><svg class="i"><use href="#i-branch" /></svg>Sincronizar<span class="w-count">2</span></li>
-                <li><svg class="i"><use href="#i-settings" /></svg>Ajustes</li>
-                <li class="w-repo"><svg class="i"><use href="#i-folder" /></svg>ana/segundo-cerebro</li>
-              </ul>
-            </aside>
-
             <!-- Brain AI home and conversation -->
-            <div class="w-main" data-pane="brain">
-              <div class="b-home">
-                <h2 class="w-h">Brain AI</h2>
-                <p class="w-sub">Próximas reuniões</p>
-                <ul class="b-events">
-                  <li><span class="w-time">14:00</span><span class="b-title">Revisão do roteiro do vídeo</span><span class="w-muted b-who">Carla, Bruno</span><span class="w-btn w-btn--rec"><i></i>Gravar</span></li>
-                  <li><span class="w-time">16:30</span><span class="b-title">1:1 com o Bruno</span><span class="w-muted b-who">Bruno</span><span class="w-btn">Preparar nota</span></li>
-                </ul>
-                <p class="w-sub">Reuniões recentes</p>
-                <ul class="b-recent">
-                  <li><svg class="i w-muted"><use href="#i-clock" /></svg><span class="w-time">Ontem 10:00</span>Planejamento do lançamento</li>
-                  <li><svg class="i w-muted"><use href="#i-clock" /></svg><span class="w-time">Seg 15:30</span>1:1 com a Carla</li>
+            <div class="w-main w-main--split" data-pane="brain">
+              <div class="a-list">
+                <p class="w-sub">Conversas</p>
+                <ul>
+                  <li class="is-on"><span><b>Nova conversa</b><small>Agora</small></span></li>
+                  <li><span><b>Ações da semana</b><small>Ontem</small></span></li>
+                  <li><span><b>Roteiro do vídeo</b><small>Seg</small></span></li>
                 </ul>
               </div>
-              <div class="b-chat" hidden>
-                <div class="b-chat-head"><button class="w-icon" type="button" data-back aria-label="Voltar ao início"><svg class="i"><use href="#i-back" /></svg></button><span data-question></span></div>
-                <div class="b-msgs" aria-live="polite">
-                  <p class="b-user" data-question></p>
-                  <p class="b-tools"><svg class="i w-muted"><use href="#i-chevron" /></svg><svg class="i w-muted"><use href="#i-wrench" /></svg><span data-tools>2 chamadas de ferramenta</span></p>
-                  <div class="b-answer" data-answer></div>
+              <div class="b-pane">
+                <div class="b-home">
+                  <h2 class="w-h">Brain AI</h2>
+                  <p class="w-sub">Próximas reuniões</p>
+                  <ul class="b-events">
+                    <li><span class="w-time">14:00</span><span class="b-title">Revisão do roteiro do vídeo</span><span class="w-muted b-who">Carla, Bruno</span><span class="w-btn w-btn--rec"><i></i>Gravar</span></li>
+                    <li><span class="w-time">16:30</span><span class="b-title">1:1 com o Bruno</span><span class="w-muted b-who">Bruno</span><span class="w-btn">Preparar nota</span></li>
+                  </ul>
+                  <p class="w-sub">Reuniões recentes</p>
+                  <ul class="b-recent">
+                    <li><svg class="i w-muted"><use href="#i-clock" /></svg><span class="w-time">Ontem 10:00</span>Planejamento do lançamento</li>
+                    <li><svg class="i w-muted"><use href="#i-clock" /></svg><span class="w-time">Seg 15:30</span>1:1 com a Carla</li>
+                  </ul>
                 </div>
-              </div>
-              <div class="b-composer">
-                <div class="b-suggest" role="group" aria-label="Perguntas de exemplo">
-                  <button type="button" data-ask="0">O que decidimos sobre o lançamento?</button>
-                  <button type="button" data-ask="1">Quais são minhas ações da semana?</button>
-                  <button type="button" data-ask="2">Resuma a 1:1 com a Carla</button>
+                <div class="b-chat" hidden>
+                  <div class="b-chat-head"><button class="w-icon" type="button" data-back aria-label="Voltar ao início"><svg class="i"><use href="#i-back" /></svg></button><span data-question></span></div>
+                  <div class="b-msgs" aria-live="polite">
+                    <p class="b-user" data-question></p>
+                    <p class="b-tools"><svg class="i w-muted"><use href="#i-chevron" /></svg><svg class="i w-muted"><use href="#i-wrench" /></svg><span data-tools>2 chamadas de ferramenta</span></p>
+                    <div class="b-answer" data-answer></div>
+                  </div>
                 </div>
-                <div class="b-input">
-                  <span class="w-chip"><svg class="i"><use href="#i-folder" /></svg>Todo o repositório</span>
-                  <span class="b-field">Pergunte qualquer coisa</span>
-                  <span class="w-send"><svg class="i"><use href="#i-send" /></svg></span>
+                <div class="b-composer">
+                  <div class="b-suggest" role="group" aria-label="Perguntas de exemplo">
+                    <button type="button" data-ask="0">O que decidimos sobre o lançamento?</button>
+                    <button type="button" data-ask="1">Quais são minhas ações da semana?</button>
+                    <button type="button" data-ask="2">Resuma a 1:1 com a Carla</button>
+                  </div>
+                  <div class="b-input">
+                    <span class="b-field">Pergunte qualquer coisa</span>
+                    <div class="b-tools-row">
+                      <span class="w-chip"><svg class="i"><use href="#i-folder" /></svg>Todo o repositório</span>
+                      <span class="w-chip"><svg class="i"><use href="#i-shield" /></svg>Perguntar<svg class="i w-muted"><use href="#i-down" /></svg></span>
+                      <span class="w-icon"><svg class="i"><use href="#i-clip" /></svg></span>
+                      <span class="w-icon"><svg class="i"><use href="#i-mic" /></svg></span>
+                      <span class="w-send"><svg class="i"><use href="#i-send" /></svg></span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <!-- Notetaker: the meeting note it wrote -->
+            <!-- Notes: the tree /organizar left, and a note open -->
+            <div class="w-main w-main--split" data-pane="notes" hidden>
+              <div class="a-list n-tree">
+                <p class="w-sub">Notas</p>
+                <ul>
+                  <li><svg class="i w-muted n-open"><use href="#i-chevron" /></svg><svg class="i"><use href="#i-folder" /></svg>Projetos</li>
+                  <li class="n-leaf is-on"><svg class="i"><use href="#i-file" /></svg>Lançamento da versão 2</li>
+                  <li class="n-leaf"><svg class="i"><use href="#i-file" /></svg>Livro sobre hábitos</li>
+                  <li><svg class="i w-muted"><use href="#i-chevron" /></svg><svg class="i"><use href="#i-folder" /></svg>Áreas</li>
+                  <li><svg class="i w-muted"><use href="#i-chevron" /></svg><svg class="i"><use href="#i-folder" /></svg>Recursos</li>
+                  <li><svg class="i w-muted"><use href="#i-chevron" /></svg><svg class="i"><use href="#i-folder" /></svg>Arquivo</li>
+                  <li><svg class="i w-muted"><use href="#i-chevron" /></svg><svg class="i"><use href="#i-folder" /></svg>Reuniões</li>
+                </ul>
+              </div>
+              <div class="n-doc">
+                <p class="n-path w-muted">Projetos / Lançamento da versão 2.md</p>
+                <h2 class="w-h">Lançamento da versão 2</h2>
+                <p class="pf-props"><span class="w-tag">type: project</span><span class="w-tag">status: in_progress</span><span class="w-tag">prazo: 2026-11-04</span></p>
+                <h3>Fase 1</h3>
+                <p class="pf-task"><span class="w-box is-on"><svg class="i"><use href="#i-check" /></svg></span>Fechar o escopo com o time</p>
+                <p class="pf-task"><span class="w-box"></span>Revisar a página de preços</p>
+                <p class="n-img"><svg class="i"><use href="#i-image" /></svg>attachments/quadro-do-lancamento.png</p>
+                <p>Ver também [[Planejamento do lançamento]].</p>
+              </div>
+            </div>
+
+            <!-- Meetings: the note the Notetaker wrote -->
             <div class="w-main" data-pane="meeting" hidden>
               <div class="m-head">
                 <h2 class="w-h">Planejamento do lançamento</h2>
@@ -152,20 +196,34 @@
               </div>
             </div>
 
+            <!-- Actions: every #action of the repository, tickable -->
+            <div class="w-main" data-pane="actions" hidden>
+              <div class="m-head">
+                <h2 class="w-h">Ações</h2>
+                <div class="w-seg"><span aria-selected="true">Esta semana</span><span>Atrasadas</span><span>Todas</span></div>
+              </div>
+              <ul class="t-list" id="action-list">
+                <li><button type="button" class="w-box" aria-pressed="false" aria-label="Concluir"></button><span>Revisar o texto da página de preços<small>@bruno · sex, 30 out · Lançamento da versão 2</small></span><span class="w-tag">alta</span></li>
+                <li><button type="button" class="w-box" aria-pressed="false" aria-label="Concluir"></button><span>Gravar o vídeo de demonstração<small>@carla · seg, 2 nov · Lançamento da versão 2</small></span></li>
+                <li><button type="button" class="w-box" aria-pressed="false" aria-label="Concluir"></button><span>Enviar o anúncio para a lista de espera<small>@ana · sáb, 31 out</small></span></li>
+                <li><button type="button" class="w-box is-on" aria-pressed="true" aria-label="Reabrir"><svg class="i"><use href="#i-check" /></svg></button><span>Fechar o escopo com o time<small>@ana · feita ontem</small></span></li>
+              </ul>
+            </div>
+
             <!-- Agents: three running, one waiting for you -->
             <div class="w-main w-main--split" data-pane="agents" hidden>
               <div class="a-list">
                 <p class="w-sub">Agentes</p>
                 <ul>
                   <li class="is-on"><svg class="i"><use href="#i-bot" /></svg><span><b>site</b><small><i class="dot dot--wait"></i>Aguardando você</small></span></li>
-                  <li><svg class="i"><use href="#i-bot" /></svg><span><b>api</b><small><i class="dot dot--work"></i>Trabalhando</small></span></li>
+                  <li><svg class="i"><use href="#i-bot" /></svg><span><b>livro</b><small><i class="dot dot--work"></i>Trabalhando</small></span></li>
                   <li><svg class="i"><use href="#i-bot" /></svg><span><b>app</b><small><i class="dot"></i>Concluído</small></span></li>
                 </ul>
               </div>
               <div class="a-conv">
                 <p class="b-user">Atualize a página de preços com o novo plano</p>
-                <p class="a-meta">Editar · Modelo padrão · Esforço médio</p>
-                <p>Encontrei a página e preparei a mudança. Preciso rodar o build para conferir.</p>
+                <p class="a-meta">Aceitar edições · Modelo padrão · Esforço médio</p>
+                <p>Atualizei o texto e a tabela de planos. Preciso rodar o build para conferir.</p>
                 <div class="a-perm">
                   <p><svg class="i"><use href="#i-shield" /></svg>Rodar comando</p>
                   <code>npm run build</code>
@@ -181,63 +239,87 @@
       <section class="story frame" id="brain" aria-labelledby="brain-title">
         <div class="story-text">
           <h2 id="brain-title" data-reveal>Pergunte às suas notas.</h2>
+          <figure class="story-photo" data-reveal style="--i: 1">
+            <img src="assets/inside-a-card-catalog-at-the-indiana.jpg" alt="Gaveta aberta de um fichário de biblioteca, com o cartão azul: se você não encontrar aqui o que quer, pergunte ao bibliotecário" width="1400" height="1050" loading="lazy" />
+            <figcaption>Fichário da Biblioteca do Estado de Indiana: “pergunte ao bibliotecário”.</figcaption>
+          </figure>
           <div class="story-step is-on" data-step="0">
             <h3>Escolha onde procurar.</h3>
-            <p>O repositório inteiro, uma pasta ou uma nota. A Brain AI lê só o que você escolheu, e só quando você pergunta.</p>
+            <p>O repositório inteiro, uma pasta ou uma nota. Anexe um print, uma planilha ou um PDF, ou dite a pergunta: a voz vira texto no seu computador.</p>
           </div>
           <div class="story-step" data-step="1">
             <h3>Cada resposta mostra a fonte.</h3>
             <p>As notas usadas viram links. Um clique abre a nota na linha citada, para você conferir o que foi dito.</p>
           </div>
           <div class="story-step" data-step="2">
-            <h3>Nada muda sem você.</h3>
-            <p>Notas novas vão para a pasta inbox. Editar uma nota existente sempre pede permissão, com a mudança à vista.</p>
+            <h3>Você decide quanto ela pode.</h3>
+            <p>Cinco modos, de Perguntar a Acesso total. No padrão, ela lê à vontade e pede licença antes de mudar qualquer nota.</p>
           </div>
         </div>
         <div class="story-stage">
           <div class="panel" data-ui data-state="0" id="story-panel">
-            <div class="p-head"><svg class="i"><use href="#i-sparkles" /></svg><span class="p-q">O que decidimos sobre o lançamento?</span><span class="w-chip"><svg class="i"><use href="#i-folder" /></svg>reunioes</span></div>
+            <div class="p-head"><svg class="i"><use href="#i-sparkles" /></svg><span class="p-q">O que decidimos sobre o lançamento?</span><span class="w-chip"><svg class="i"><use href="#i-folder" /></svg>Reuniões</span></div>
             <div class="p-body">
               <div class="p-menu" data-show="0">
                 <p class="w-sub">Onde procurar</p>
                 <ul>
                   <li><svg class="i"><use href="#i-folder" /></svg>Todo o repositório</li>
-                  <li class="is-on"><svg class="i"><use href="#i-folder" /></svg>reunioes<svg class="i w-tick"><use href="#i-check" /></svg></li>
-                  <li><svg class="i"><use href="#i-folder" /></svg>projetos</li>
+                  <li class="is-on"><svg class="i"><use href="#i-folder" /></svg>Reuniões<svg class="i w-tick"><use href="#i-check" /></svg></li>
+                  <li><svg class="i"><use href="#i-folder" /></svg>Projetos</li>
                   <li><svg class="i"><use href="#i-file" /></svg>Lançamento da versão 2</li>
                 </ul>
+                <p class="p-attach"><span class="w-chip"><svg class="i"><use href="#i-image" /></svg>quadro.png</span><span class="w-chip"><svg class="i"><use href="#i-file" /></svg>orcamento.csv</span></p>
               </div>
               <div class="p-answer" data-show="1">
                 <p>O lançamento foi dividido em duas fases: a Brain AI sai primeiro e os Agentes na semana seguinte (<span class="w-cite">Planejamento do lançamento</span>).</p>
                 <div class="p-source">
-                  <p class="w-sub"><svg class="i"><use href="#i-file" /></svg>reunioes/Planejamento do lançamento.md</p>
+                  <p class="w-sub"><svg class="i"><use href="#i-file" /></svg>Reuniões/Planejamento do lançamento.md</p>
                   <p><span class="ln">12</span>## Resumo</p>
                   <p class="is-hit"><span class="ln">13</span>O time decidiu lançar a versão 2 em duas fases.</p>
                   <p><span class="ln">14</span>A Brain AI entra primeiro; os Agentes saem na…</p>
                 </div>
               </div>
-              <div class="p-edit" data-show="2">
-                <p>Vou marcar a primeira fase como concluída no projeto.</p>
-                <div class="a-perm">
-                  <p><svg class="i"><use href="#i-shield" /></svg>Editar projetos/Lançamento da versão 2.md</p>
-                  <pre class="w-diff"><code><span class="del">- [ ] Fechar o escopo com o time #action @ana</span>
-<span class="add">+ [x] Fechar o escopo com o time #action @ana</span></code></pre>
-                  <div class="a-perm-actions"><span class="w-btn">Negar</span><span class="w-btn w-btn--primary"><svg class="i"><use href="#i-check" /></svg>Permitir</span></div>
-                </div>
+              <div class="p-modes" data-show="2">
+                <p class="w-sub">Modo de permissão</p>
+                <ul>
+                  <li class="is-on"><span><b>Perguntar</b><small>Lê o repositório sem perguntar; pergunta antes do resto.</small></span><svg class="i w-tick"><use href="#i-check" /></svg></li>
+                  <li><span><b>Aceitar edições</b><small>Também cria e edita no repositório sem perguntar.</small></span></li>
+                  <li><span><b>Planejar</b><small>Só investiga e propõe um plano, sem alterar nada.</small></span></li>
+                  <li><span><b>Auto</b><small>O provedor decide sozinho e pergunta nas ações arriscadas.</small></span></li>
+                  <li><span><b>Acesso total</b><small>Faz tudo sem perguntar, exceto em locais sensíveis.</small></span></li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- The Notetaker: the record control, blown up. -->
+      <!-- The Notetaker: the record control, blown up, beside the transcript it writes live. -->
       <section class="record" id="notetaker" aria-labelledby="record-title">
         <div class="record-copy frame">
-          <h2 id="record-title" data-reveal><span data-rec-word>Grave</span> a reunião.</h2>
-          <p data-reveal style="--i: 1">
-            Microfone e áudio do sistema, só quando você confirma. Transcrição, falantes e resumo rodam no seu computador, e o áudio é
-            apagado depois.
-          </p>
+          <div class="record-text">
+            <h2 id="record-title" data-reveal><span data-rec-word>Grave</span> a reunião.</h2>
+            <p data-reveal style="--i: 1">
+              As falas aparecem enquanto a reunião acontece, transcritas no seu computador. Ao parar, só faltam os falantes e o resumo, e o
+              áudio é apagado.
+            </p>
+            <p class="record-alt" data-reveal style="--i: 2">Sem gravação? Cole a transcrição ou importe um .vtt, um .srt ou um áudio.</p>
+          </div>
+          <div class="live" data-ui data-reveal style="--i: 2">
+            <div class="live-head">
+              <span class="live-state"><i class="dot" data-live-dot></i><span data-live-state>Transcrição ao vivo</span></span>
+              <div class="w-seg"><span>Notas</span><span aria-selected="true">Transcrição</span></div>
+            </div>
+            <ol class="live-lines" data-live-lines aria-live="polite">
+              <li><b>Chamada</b><span class="w-time">00:04</span><p>Bom dia! Conseguiu ver o roteiro do vídeo?</p></li>
+              <li><b>Eu</b><span class="w-time">00:09</span><p>Vi sim. Acho que a abertura pode ser mais curta.</p></li>
+              <li><b>Chamada</b><span class="w-time">00:15</span><p>Concordo. Corto os primeiros vinte segundos.</p></li>
+            </ol>
+            <div class="live-meters" aria-hidden="true">
+              <span>Seu microfone<i class="meter" data-meter></i></span>
+              <span>Chamada<i class="meter" data-meter></i></span>
+            </div>
+          </div>
         </div>
         <div class="rec" data-ui>
           <button class="rec-pill" type="button" aria-pressed="false" id="rec-toggle">
@@ -248,38 +330,39 @@
         </div>
       </section>
 
-      <!-- An action, from the meeting to done, in four fields. -->
+      <!-- An action, from the meeting to done: the same line, in four places of the app. -->
       <section class="journey" aria-labelledby="journey-title">
         <div class="field field--1">
           <h2 id="journey-title">Da reunião à ação feita.</h2>
           <div class="card" data-ui>
-            <p class="card-title"><span class="w-box"></span>Gravar o vídeo de demonstração</p>
-            <p class="card-note"><svg class="i"><use href="#i-calendar" /></svg>Planejamento do lançamento</p>
+            <p class="card-h">Próximos passos</p>
+            <p class="card-line"><span class="w-box"></span>Gravar o vídeo de demonstração</p>
             <code class="card-md">- [ ] Gravar o vídeo #action</code>
           </div>
           <p class="clause">Primeiro ela nasce no resumo.</p>
         </div>
         <div class="field field--2">
           <div class="card" data-ui>
-            <p class="card-title"><span class="w-box"></span>Gravar o vídeo de demonstração</p>
-            <p class="card-chips"><span class="w-tag">@carla</span><span class="w-tag">seg, 26 out</span><span class="w-tag">Versão 2</span></p>
-            <code class="card-md">- [ ] Gravar o vídeo #action @carla</code>
+            <ul class="card-rows">
+              <li class="is-on"><span class="w-box"></span><span>Gravar o vídeo de demonstração<small>@carla · seg, 2 nov</small></span></li>
+              <li><span class="w-box"></span><span>Revisar a página de preços<small>@bruno · sex, 30 out</small></span></li>
+            </ul>
           </div>
           <p class="clause">Depois ganha dono e prazo.</p>
         </div>
         <div class="field field--3">
-          <div class="card" data-ui>
-            <p class="card-title"><span class="w-box"></span>Gravar o vídeo de demonstração</p>
-            <p class="card-note"><svg class="i"><use href="#i-bell" /></svg>Lembrete hoje às 09:00</p>
-            <code class="card-md">(@2026-10-26 09:00) #action</code>
+          <div class="card card--toast" data-ui>
+            <img src="assets/icon.svg" alt="" width="32" height="32" />
+            <p><b>Lembrete</b><span>Gravar o vídeo de demonstração</span><small>Hoje, 09:00 · Adiar 1 hora</small></p>
           </div>
           <p class="clause">Na hora certa, o lembrete avisa.</p>
         </div>
         <div class="field field--4">
           <div class="card" data-ui>
-            <p class="card-title is-done"><span class="w-box is-on"><svg class="i"><use href="#i-check" /></svg></span>Gravar o vídeo de demonstração</p>
-            <p class="card-note"><svg class="i"><use href="#i-check-circle" /></svg>Feita · 2 de 4 no projeto</p>
-            <code class="card-md">- [x] Gravar o vídeo #action</code>
+            <p class="card-h">Lançamento da versão 2</p>
+            <p class="card-progress"><i style="width: 50%"></i></p>
+            <p class="card-note">2 de 4 ações feitas</p>
+            <p class="card-line is-done"><span class="w-box is-on"><svg class="i"><use href="#i-check" /></svg></span>Gravar o vídeo de demonstração</p>
           </div>
           <p class="clause">E fica feita, na própria nota.</p>
         </div>
@@ -290,8 +373,8 @@
         <div class="demo-head">
           <h2 id="agents-title" data-reveal>Agentes em paralelo.</h2>
           <p data-reveal style="--i: 1">
-            Vários agentes de IA, cada um num projeto seu, com a conversa, o diff e o terminal lado a lado. Mude os controles e veja o
-            agente responder.
+            Vários agentes de IA, cada um numa pasta sua: um app, um site ou um livro. Conversa, alterações e terminal lado a lado. Mude os
+            controles e veja o agente responder.
           </p>
         </div>
         <div class="demo-panel" data-reveal style="--i: 2">
@@ -301,52 +384,54 @@
               <ul data-agent-list></ul>
             </div>
             <div class="as-conv">
-              <p class="as-flow" data-flow hidden></p>
               <p class="b-user" data-agent-ask>Adicione o filtro por label na lista de ações</p>
-              <p class="a-meta" data-agent-meta>Editar · Modelo padrão · Esforço médio</p>
+              <p class="a-meta" data-agent-meta>Perguntar · Modelo padrão · Esforço médio</p>
               <p data-agent-say>Encontrei o componente da lista. Vou adicionar o filtro e rodar os testes.</p>
               <div class="a-perm" data-perm>
-                <p><svg class="i"><use href="#i-shield" /></svg>Rodar comando</p>
+                <p><svg class="i"><use href="#i-shield" /></svg><span data-perm-title>Rodar comando</span></p>
                 <code data-cmd>pnpm test actions</code>
                 <div class="a-perm-actions"><span class="w-btn">Negar</span><span class="w-btn w-btn--primary"><svg class="i"><use href="#i-check" /></svg>Permitir</span></div>
               </div>
-              <p class="a-auto" data-auto hidden><svg class="i"><use href="#i-check" /></svg><span>pnpm test actions · 24 testes passaram</span></p>
+              <p class="a-auto" data-auto hidden><svg class="i"><use href="#i-check" /></svg><span></span></p>
+              <div class="as-bg" data-bg hidden>
+                <p class="w-sub">Em segundo plano<span class="w-count">Limpar concluídos</span></p>
+                <ul>
+                  <li><svg class="i"><use href="#i-terminal" /></svg><span data-bg-cmd>pnpm dev</span><small><i class="dot dot--work"></i>Rodando</small></li>
+                  <li><svg class="i"><use href="#i-bot" /></svg><span>Sub-agente: revisor</span><small><i class="dot"></i>Concluído</small></li>
+                </ul>
+              </div>
             </div>
             <div class="as-side">
               <div class="w-seg"><span aria-selected="true" data-side-tab="diff">Alterações</span><span aria-selected="false" data-side-tab="term"><svg class="i"><use href="#i-terminal" /></svg>Terminal</span></div>
               <div class="as-diff" data-side="diff">
-                <p class="w-sub"><svg class="i"><use href="#i-file" /></svg>actions-list.tsx <b class="add">+12</b> <b class="del">−3</b></p>
-                <pre class="w-diff"><code><span class="del">-  const visible = actions</span>
-<span class="add">+  const visible = actions.filter(</span>
-<span class="add">+    (a) =&gt; !label || a.labels.includes(label),</span>
-<span class="add">+  )</span></code></pre>
+                <p class="w-sub"><svg class="i"><use href="#i-file" /></svg><span data-diff-file>actions-list.tsx</span> <b class="add" data-diff-add>+12</b> <b class="del" data-diff-del>−3</b></p>
+                <pre class="w-diff"><code data-diff></code></pre>
               </div>
               <div class="as-term" data-side="term" hidden>
-                <pre><code>$ pnpm test actions
- ✓ filtra por label (4 ms)<!-- taste-skill-ignore: terminal output -->
- ✓ mantém a ordem por prazo (2 ms)<!-- taste-skill-ignore: terminal output -->
- Tests  24 passed</code></pre>
+                <pre><code></code></pre>
               </div>
             </div>
           </div>
           <form class="demo-controls" id="agent-controls" aria-label="Controles do agente">
-            <label class="ctl"><span>Projeto</span>
-              <select name="scope"><option value="app">app</option><option value="api">api</option><option value="site">site</option></select>
+            <label class="ctl"><span>Pasta</span>
+              <select name="scope"><option value="app">app</option><option value="livro">livro</option><option value="api">api</option><option value="site">site</option></select>
             </label>
-            <div class="ctl ctl--stack"><span>Modo</span>
-              <div class="seg" role="radiogroup" aria-label="Modo">
-                <label><input type="radio" name="mode" value="Perguntar" /><span>Perguntar</span></label>
-                <label><input type="radio" name="mode" value="Planejar" /><span>Planejar</span></label>
-                <label><input type="radio" name="mode" value="Editar" checked /><span>Editar</span></label>
-              </div>
-            </div>
-            <label class="ctl"><span>Pedir permissão</span><input type="checkbox" name="perm" class="switch" checked /></label>
+            <label class="ctl"><span>Modo</span>
+              <select name="mode">
+                <option>Perguntar</option>
+                <option selected>Aceitar edições</option>
+                <option>Planejar</option>
+                <option>Auto</option>
+                <option>Acesso total</option>
+              </select>
+            </label>
+            <label class="ctl"><span>Conta do Claude</span>
+              <select name="account"><option>~/.claude</option><option>~/.claude-trabalho</option></select>
+            </label>
             <label class="ctl"><span>Mostrar terminal</span><input type="checkbox" name="term" class="switch" /></label>
+            <label class="ctl ctl--more"><span>Em segundo plano</span><input type="checkbox" name="bg" class="switch" /></label>
             <label class="ctl ctl--more"><span>Esforço</span>
               <select name="effort"><option>baixo</option><option selected>médio</option><option>alto</option></select>
-            </label>
-            <label class="ctl ctl--more"><span>Passo do fluxo</span>
-              <select name="flow"><option value="">nenhum</option><option>Specify</option><option>Plan</option><option>Implement</option></select>
             </label>
             <label class="ctl ctl--more"><span>Agentes rodando</span>
               <input type="range" name="count" min="1" max="4" value="3" />
@@ -354,50 +439,68 @@
             <button type="button" class="link demo-more" aria-expanded="false" id="demo-more">Mais controles</button>
           </form>
         </div>
-        <p class="demo-foot">Os agentes usam a conta do provedor de IA que você já tem, no seu computador. <a class="link" href="docs.html#agentes">Como funcionam</a></p>
+        <p class="demo-foot">Os agentes usam o Claude Code ou o Codex com a sua própria assinatura, no seu computador. <a class="link" href="docs.html#agentes">Como funcionam</a></p>
       </section>
 
       <!-- Everything else stays a text file: small proofs beside the words. -->
       <section class="features frame" aria-labelledby="features-title">
-        <h2 id="features-title" data-reveal>Tudo continua sendo Markdown.</h2>
+        <div class="features-head">
+          <h2 id="features-title" data-reveal>Tudo continua sendo Markdown.</h2>
+          <figure class="features-photo" data-reveal style="--i: 1">
+            <img src="assets/zettelkaesten-et-01.jpg" alt="Prateleiras com dezenas de caixas de fichas etiquetadas, do dicionário Thesaurus linguae Latinae" width="1400" height="933" loading="lazy" />
+            <figcaption>Caixas de fichas do Thesaurus linguae Latinae, em Munique. Um segundo cérebro em papel.</figcaption>
+          </figure>
+        </div>
         <div class="modules">
           <div class="module" data-reveal>
             <div class="proof" data-ui>
               <p class="pf-h">Lançamento da versão 2</p>
               <p class="pf-props"><span class="w-tag">type: project</span><span class="w-tag">status: in_progress</span></p>
               <p class="pf-task"><span class="w-box is-on"><svg class="i"><use href="#i-check" /></svg></span>Fechar o escopo com o time</p>
-              <p class="pf-task"><span class="w-box"></span>Revisar a página de preços</p>
+              <p class="n-img"><svg class="i"><use href="#i-image" /></svg>attachments/quadro.png</p>
             </div>
             <div class="module-text">
               <h3>Editor em blocos.</h3>
-              <p>Cada nota é um arquivo .md. O editor grava Markdown e preserva o que você não tocou. Propriedades viram um painel, e [[links]] ligam as ideias.</p>
+              <p>Cada nota é um arquivo .md, e o editor preserva o que você não tocou. Cole uma imagem e ela vai para a pasta de anexos.</p>
             </div>
           </div>
           <div class="module" data-reveal>
             <div class="proof" data-ui>
-              <div class="w-seg"><span>Blocos</span><span aria-selected="true">Código-fonte</span><span>Diff</span></div>
-              <pre class="pf-code"><code>---
-type: meeting
-participants: [Ana, Bruno, Carla]
+              <div class="w-seg"><span>Blocos</span><span aria-selected="true">Código-fonte</span></div>
+              <pre class="pf-code"><code>config.yaml
 ---
-# Planejamento do lançamento
-- [ ] Revisar a página de preços #action</code></pre>
+idioma: pt-BR
+reunioes:
+  pasta: Reuniões
+  template: padrão</code></pre>
             </div>
             <div class="module-text">
-              <h3>O arquivo, sem segredo.</h3>
-              <p>Alterne para o código-fonte quando quiser. O que está ali é tudo o que existe, e qualquer editor de texto abre.</p>
+              <h3>Qualquer arquivo de texto.</h3>
+              <p>JSON, YAML, .gitignore e blocos de código com linguagem abrem no mesmo editor. O que está ali é tudo o que existe.</p>
             </div>
           </div>
           <div class="module" data-reveal>
             <div class="proof" data-ui>
-              <p class="w-sub"><svg class="i"><use href="#i-branch" /></svg>2 alterações para sincronizar</p>
+              <ul class="pf-menu">
+                <li class="is-on"><svg class="i"><use href="#i-sync" /></svg>Sincronizar<span class="w-count">2 notas</span></li>
+                <li><svg class="i"><use href="#i-settings" /></svg>Ajustes</li>
+                <li><svg class="i"><use href="#i-swap" /></svg>Trocar repositório</li>
+              </ul>
               <pre class="w-diff"><code><span class="del">- Preço da licença em revisão.</span>
 <span class="add">+ Preço mantido para quem já comprou.</span></code></pre>
-              <span class="w-btn w-btn--primary">Sincronizar agora</span>
             </div>
             <div class="module-text">
-              <h3>Histórico de cada linha.</h3>
-              <p>Cada mudança fica no Git, com o diff. Sincronizar grava, busca e envia; conflitos aparecem lado a lado.</p>
+              <h3>Sua pasta, o seu git.</h3>
+              <p>Escolha uma pasta ou um clone que já existe. O app usa o git e as credenciais do seu computador, e nunca descarta trabalho local.</p>
+            </div>
+          </div>
+          <div class="module" data-reveal>
+            <div class="proof proof--photo">
+              <img src="assets/zettelkasten-514941699.jpg" alt="Estante cheia de caixas de fichas e papéis empilhados, sem ordem aparente" width="1400" height="933" loading="lazy" />
+            </div>
+            <div class="module-text">
+              <h3>Organize pelo método PARA.</h3>
+              <p>A skill /organizar propõe Projetos, Áreas, Recursos e Arquivo, com nomes de gente, e só move depois do seu ok.</p>
             </div>
           </div>
           <div class="module" data-reveal>
@@ -408,10 +511,11 @@ participants: [Ana, Bruno, Carla]
                 <li>1:1</li>
                 <li>Entrevista</li>
               </ul>
+              <p class="pf-model"><span>Qwen3 4B</span><span class="w-muted">Instalado · 2,4 GB</span></p>
             </div>
             <div class="module-text">
               <h3>Resumos no seu formato.</h3>
-              <p>Templates são arquivos Markdown em .brain-notes/templates/. Duplique um e ajuste. O resumo é feito no seu computador.</p>
+              <p>Templates são arquivos Markdown do repositório. O resumo roda num modelo local, que você baixa ou remove em Ajustes.</p>
             </div>
           </div>
           <div class="module" data-reveal>
@@ -424,20 +528,6 @@ participants: [Ana, Bruno, Carla]
               <p>Conecte o Google Calendar, só leitura. Um minuto antes, o app oferece gravar, e título e participantes entram na nota.</p>
             </div>
           </div>
-          <div class="module" data-reveal>
-            <div class="proof" data-ui>
-              <p class="pf-search"><svg class="i"><use href="#i-search" /></svg>lança<span class="w-kbd">⌘K</span></p>
-              <ul class="pf-menu">
-                <li class="is-on"><svg class="i"><use href="#i-file" /></svg>Lançamento da versão 2</li>
-                <li><svg class="i"><use href="#i-calendar" /></svg>Planejamento do lançamento</li>
-                <li><svg class="i"><use href="#i-sparkles" /></svg>Perguntar à Brain AI</li>
-              </ul>
-            </div>
-            <div class="module-text">
-              <h3>Tudo a um atalho.</h3>
-              <p>⌘K busca notas, reuniões e comandos. Funciona offline numa cópia local, e sincroniza quando a conexão volta.</p>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -448,11 +538,15 @@ participants: [Ana, Bruno, Carla]
           <h2 id="letter-title" class="letter-title">Por que o Brain Notes existe.</h2>
           <p>Eu queria um lugar só para notas, reuniões e o que sai delas. Cada ferramenta guardava um pedaço, num formato que não era meu.</p>
           <p>O Brain Notes parte de uma regra simples: <mark>tudo vira um arquivo de texto no seu repositório</mark>. Se o app sumir amanhã, suas notas continuam lá, legíveis.</p>
-          <p>A IA entra do mesmo jeito. Ela lê quando você pergunta, mostra de onde tirou a resposta e pede licença antes de mudar qualquer coisa.</p>
+          <p>A IA entra do mesmo jeito. Ela lê quando você pede, mostra de onde tirou a resposta e só muda o que o modo que você escolheu deixa.</p>
           <p>Se quiser conversar sobre o app, meu e-mail está no fim da página. Eu leio todos.</p>
           <p class="letter-sign">Bruno Dias Donnici</p>
           <p class="letter-role">Criador do Brain Notes</p>
         </div>
+        <figure class="letter-photo" data-reveal>
+          <img src="assets/commonplace-book-of-thomas-bateman-wellcome-l0023143.jpg" alt="Página manuscrita de um caderno de anotações médicas de 1814, com datas e títulos sublinhados" width="1037" height="1400" loading="lazy" />
+          <figcaption>Caderno de Thomas Bateman, 1814. Só texto, e ainda se lê.</figcaption>
+        </figure>
       </section>
 
       <!-- Questions on the left, one answer on the right. -->
@@ -465,18 +559,20 @@ participants: [Ana, Bruno, Carla]
             <li><button type="button" role="tab" aria-selected="false" aria-controls="a2" id="q2">Onde ficam minhas notas?</button><p class="faq-inline" hidden></p></li>
             <li><button type="button" role="tab" aria-selected="false" aria-controls="a3" id="q3">A IA lê minhas notas?</button><p class="faq-inline" hidden></p></li>
             <li><button type="button" role="tab" aria-selected="false" aria-controls="a4" id="q4">Preciso de uma conta de IA?</button><p class="faq-inline" hidden></p></li>
-            <li><button type="button" role="tab" aria-selected="false" aria-controls="a5" id="q5">Funciona sem internet?</button><p class="faq-inline" hidden></p></li>
-            <li><button type="button" role="tab" aria-selected="false" aria-controls="a6" id="q6">E se eu parar de usar?</button><p class="faq-inline" hidden></p></li>
+            <li><button type="button" role="tab" aria-selected="false" aria-controls="a5" id="q5">Preciso saber programar?</button><p class="faq-inline" hidden></p></li>
+            <li><button type="button" role="tab" aria-selected="false" aria-controls="a6" id="q6">Funciona sem internet?</button><p class="faq-inline" hidden></p></li>
+            <li><button type="button" role="tab" aria-selected="false" aria-controls="a7" id="q7">E se eu parar de usar?</button><p class="faq-inline" hidden></p></li>
           </ul>
         </div>
         <div class="faq-pane">
           <p role="tabpanel" id="a0" aria-labelledby="q0">Por licença. Escreva para o e-mail abaixo e você recebe o valor, a forma de pagamento e o instalador. Você tem 7 dias para desistir.</p>
           <p role="tabpanel" id="a1" aria-labelledby="q1" hidden>No macOS com Apple Silicon hoje. Windows, Linux e um app web instalável estão a caminho.</p>
-          <p role="tabpanel" id="a2" aria-labelledby="q2" hidden>No repositório Git que você escolhe ao entrar e na cópia do seu computador. Não temos acesso a elas.</p>
-          <p role="tabpanel" id="a3" aria-labelledby="q3" hidden>Só quando você pergunta, e só no contexto que você escolheu. Mudar uma nota existente sempre pede sua permissão.</p>
-          <p role="tabpanel" id="a4" aria-labelledby="q4" hidden>Para a Brain AI e os Agentes, sim: eles usam o provedor de IA que você conecta com a sua conta. Notas, reuniões e resumos funcionam sem ela.</p>
-          <p role="tabpanel" id="a5" aria-labelledby="q5" hidden>Sim. O app trabalha numa cópia local do repositório e sincroniza quando a conexão volta.</p>
-          <p role="tabpanel" id="a6" aria-labelledby="q6" hidden>Seus arquivos continuam no seu repositório, em Markdown puro, legíveis por qualquer editor de texto.</p>
+          <p role="tabpanel" id="a2" aria-labelledby="q2" hidden>Numa pasta do seu computador que você escolhe, ligada ao seu repositório no GitHub. Pode ser um clone que você já tem. Não temos acesso a elas.</p>
+          <p role="tabpanel" id="a3" aria-labelledby="q3" hidden>Só quando você pergunta ou pede uma ação. No modo padrão ela lê à vontade e pede sua permissão antes de mudar qualquer arquivo.</p>
+          <p role="tabpanel" id="a4" aria-labelledby="q4" hidden>Para a Brain AI e os Agentes, sim: o Claude Code ou o Codex, com a sua assinatura. Notas, gravação, transcrição e resumos funcionam sem ela.</p>
+          <p role="tabpanel" id="a5" aria-labelledby="q5" hidden>Não. Os Agentes trabalham em qualquer pasta, seja um app, um site ou um livro. As skills de desenvolvimento são opcionais.</p>
+          <p role="tabpanel" id="a6" aria-labelledby="q6" hidden>Sim. As notas estão no seu computador, e a transcrição e o resumo rodam nele. O app sincroniza quando a conexão volta.</p>
+          <p role="tabpanel" id="a7" aria-labelledby="q7" hidden>Seus arquivos continuam na sua pasta e no seu repositório, em Markdown puro, legíveis por qualquer editor de texto.</p>
         </div>
       </section>
 
@@ -503,6 +599,13 @@ participants: [Ana, Bruno, Carla]
         <a href="mailto:bruno.dias.donnici@gmail.com">Contato</a>
       </nav>
       <span class="right">© 2026 Bruno Dias Donnici</span>
+      <p class="credits">
+        Fotos via Wikimedia Commons:
+        <a href="https://commons.wikimedia.org/w/index.php?curid=153582891">fichário da Biblioteca do Estado de Indiana</a>, TBurmeister (WMF), <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>;
+        <a href="https://commons.wikimedia.org/wiki/File:Zettelkaesten_et_01.jpg">caixas de fichas do Thesaurus linguae Latinae</a>, Michiel Streijger, <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a>;
+        <a href="https://commons.wikimedia.org/wiki/File:Zettelkasten_(514941699).jpg">Zettelkasten</a>, Kai Schreiber, <a href="https://creativecommons.org/licenses/by-sa/2.0">CC BY-SA 2.0</a>;
+        <a href="https://commons.wikimedia.org/w/index.php?curid=35998617">caderno de Thomas Bateman</a>, Wellcome Collection, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+      </p>
     </footer>
   </body>
 </html>
