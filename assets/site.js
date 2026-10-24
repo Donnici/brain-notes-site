@@ -85,7 +85,7 @@ function wireApp() {
   document.addEventListener('keydown', (e) => e.key === 'Escape' && openMenu(false));
 
   // Actions: every checkbox ticks, the way it ticks the line in the note.
-  app.querySelectorAll('#action-list .w-box').forEach((box) => {
+  app.querySelectorAll('#action-list .w-check').forEach((box) => {
     const row = box.closest('li');
     const sync = () => {
       const on = box.getAttribute('aria-pressed') === 'true';
@@ -105,18 +105,16 @@ function wireApp() {
   const home = pane.querySelector('.b-home');
   const chat = pane.querySelector('.b-chat');
   const answer = pane.querySelector('[data-answer]');
-  const field = pane.querySelector('.b-field');
   const asks = pane.querySelectorAll('[data-ask]');
   let timer = 0;
 
   const ask = (button) => {
     const item = ANSWERS[Number(button.dataset.ask)];
     asks.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
-    pane.querySelectorAll('[data-question]').forEach((el) => (el.textContent = button.textContent));
+    pane.querySelectorAll('[data-question]').forEach((el) => (el.textContent = button.firstElementChild.textContent));
     pane.querySelector('[data-tools]').textContent = item.tools;
     home.hidden = true;
     chat.hidden = false;
-    field.textContent = 'Pergunte qualquer coisa';
     clearInterval(timer);
     stream(answer, item.html);
   };
@@ -188,27 +186,32 @@ function wireRecord() {
   const lines = section.querySelector('[data-live-lines]');
   const state = section.querySelector('[data-live-state]');
   const dot = section.querySelector('[data-live-dot]');
+  const barLabel = section.querySelector('[data-live-label]');
+  const barClock = section.querySelector('[data-live-clock]');
   const meters = [...section.querySelectorAll('[data-meter]')];
   let started = 0;
   let timer = 0;
   let next = 0;
-  const clock = (s) => `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`;
+  const pad = (n) => String(n).padStart(2, '0');
+  const clock = (s) => `${pad(Math.floor(s / 60))}:${pad(s % 60)}`;
+  const long = (s) => `00:${clock(s)}`;
   const line = ([who, text], at) => {
     const li = document.createElement('li');
-    li.innerHTML = `<b>${who}</b><span class="w-time">${clock(at)}</span><p>${text}</p>`;
+    li.innerHTML = `<span class="live-t">${long(at)}</span><b>${who}</b><p>${text}</p>`;
     lines.append(li);
     while (lines.children.length > 4) lines.firstElementChild.remove();
   };
   const tick = () => {
     const s = Math.floor((Date.now() - started) / 1000);
     time.textContent = clock(s);
-    // A new utterance every few seconds, and the two level meters move with the voices.
+    barClock.textContent = long(s);
+    // A new utterance every few seconds, and the wave moves with the voices.
     if (next < UTTERANCES.length && s >= 1 + next * 3) {
       if (next === 0) lines.textContent = '';
       line(UTTERANCES[next], s);
       next += 1;
     }
-    meters.forEach((m) => m.style.setProperty('--level', (0.15 + Math.random() * 0.8).toFixed(2)));
+    meters.forEach((m) => m.style.setProperty('--level', (0.15 + Math.random() * 0.85).toFixed(2)));
   };
   button.addEventListener('click', () => {
     const on = button.getAttribute('aria-pressed') !== 'true';
@@ -216,6 +219,7 @@ function wireRecord() {
     section.classList.toggle('is-recording', on);
     label.textContent = on ? 'Gravando' : 'Gravar';
     word.textContent = on ? 'Gravando' : 'Grave';
+    barLabel.textContent = on ? 'Gravando' : 'Pausado';
     dot.classList.toggle('is-live', on);
     clearInterval(timer);
     if (on) {
@@ -326,8 +330,8 @@ function wireAgents() {
     $('[data-agent-meta]').textContent = `${mode} · Modelo padrão · Esforço ${data.get('effort')} · ${data.get('account')}`;
     $('[data-agent-say]').textContent = plans ? scope.plan : asksEdit ? scope.say : scope.done;
     $('[data-perm]').hidden = !(asksEdit || asksCommand);
-    $('[data-perm-title]').textContent = asksEdit ? `Editar ${scope.file}` : 'Rodar comando';
-    $('[data-cmd]').textContent = asksEdit ? `${scope.stat[0]} ${scope.stat[1]} linhas` : scope.cmd;
+    $('[data-perm-title]').textContent = asksEdit ? 'Edit' : 'Bash';
+    $('[data-cmd]').textContent = asksEdit ? scope.file : scope.cmd;
     const auto = $('[data-auto]');
     auto.hidden = !runs;
     auto.querySelector('span').textContent = `${scope.cmd} · ${scope.result}`;
