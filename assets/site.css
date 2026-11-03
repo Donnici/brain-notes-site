@@ -1,28 +1,30 @@
-/* Brain Notes — site. One face (Geist), the app's own neutrals and its rose-beige brand colour. */
+/* Mind Clean — site. One face (Outfit), the app's warm neutrals, its sage brand colour and a terracotta highlight. */
 
 :root {
-  --bg: #fafafa;
-  --surface: #f2f2f3;
-  --ink: #1b1b1e;
-  --muted: #5f5f68;
-  --accent: #94685d;
-  --accent-deep: #7d564c;
-  --accent-text: #7d564c;
+  --bg: #fdfcf8;
+  --surface: #f4f7f4;
+  --ink: #1c1917;
+  --muted: #57534e;
+  --accent: #4a6761;
+  --accent-deep: #3a524d;
+  --accent-text: #3a524d;
   --on-accent: #ffffff;
-  --field-1: #f3eeec;
-  --field-2: #e7dbd6;
-  --field-3: #cfb7ae;
-  --field-4: #94685d;
+  --highlight: #d9a384;
+  --highlight-text: #9b5738;
+  --field-1: #f4f7f4;
+  --field-2: #e8ede6;
+  --field-3: #a8bdb7;
+  --field-4: #4a6761;
 
   /* The app's own tokens, used only inside [data-ui] fragments. */
-  --w-bg: oklch(0.99 0.002 286);
-  --w-side: oklch(0.975 0.003 286);
+  --w-bg: oklch(0.991 0.005 95);
+  --w-side: oklch(0.975 0.005 106);
   --w-card: oklch(1 0 0);
-  --w-line: oklch(0.91 0.004 286);
-  --w-hover: oklch(0.96 0.004 286);
-  --w-muted: oklch(0.52 0.014 286);
-  --w-brand: oklch(0.56 0.06 35);
-  --w-brand-ink: oklch(0.5 0.06 35);
+  --w-line: oklch(0.923 0.003 49);
+  --w-hover: oklch(0.94 0.011 137);
+  --w-muted: oklch(0.535 0.012 58);
+  --w-brand: oklch(0.489 0.035 181);
+  --w-brand-ink: oklch(0.489 0.035 181);
   --w-serif: ui-serif, 'New York', Georgia, serif;
   --w-add: #e6f4ea;
   --w-add-ink: #1d6b38;
@@ -31,7 +33,7 @@
   --w-warn: oklch(0.72 0.15 75);
   --w-ok: #3f9a63;
 
-  --font: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font: 'Outfit', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --ui: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; /* taste-skill-ignore: code only */
 
@@ -51,24 +53,26 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --bg: #141416;
-    --surface: #1c1c1f;
-    --ink: #ededef;
-    --muted: #a6a6ae;
-    --accent: #94685d;
-    --accent-deep: #7d564c;
-    --accent-text: #d4a99c;
-    --field-1: #1f1b1a;
-    --field-2: #2c2422;
-    --field-3: #46362f;
-    --field-4: #7d564c;
-    --w-bg: oklch(0.16 0.004 286);
-    --w-side: oklch(0.19 0.005 286);
-    --w-card: oklch(0.2 0.005 286);
-    --w-line: oklch(0.3 0.005 286);
-    --w-hover: oklch(0.25 0.006 286);
-    --w-muted: oklch(0.7 0.012 286);
-    --w-brand-ink: oklch(0.76 0.06 35);
+    --bg: #110f0d;
+    --surface: #1a1816;
+    --ink: #f2f2ef;
+    --muted: #a9a49e;
+    --accent: #4a6761;
+    --accent-deep: #3a524d;
+    --accent-text: #95c2b8;
+    --highlight-text: #e2a989;
+    --field-1: #121a18;
+    --field-2: #1c2a27;
+    --field-3: #2b423e;
+    --field-4: #4a6761;
+    --w-bg: oklch(0.17 0.005 60);
+    --w-side: oklch(0.2 0.006 60);
+    --w-card: oklch(0.21 0.006 60);
+    --w-line: oklch(0.3 0.006 60);
+    --w-hover: oklch(0.3 0.02 180);
+    --w-muted: oklch(0.72 0.01 70);
+    --w-brand: oklch(0.72 0.045 180);
+    --w-brand-ink: oklch(0.78 0.05 180);
     --w-add: #173323;
     --w-add-ink: #8fd6a7;
     --w-del: #3a1d1a;
@@ -77,24 +81,26 @@
   }
 }
 :root[data-theme='dark'] {
-  --bg: #141416;
-  --surface: #1c1c1f;
-  --ink: #ededef;
-  --muted: #a6a6ae;
-  --accent: #94685d;
-  --accent-deep: #7d564c;
-  --accent-text: #d4a99c;
-  --field-1: #1f1b1a;
-  --field-2: #2c2422;
-  --field-3: #46362f;
-  --field-4: #7d564c;
-  --w-bg: oklch(0.16 0.004 286);
-  --w-side: oklch(0.19 0.005 286);
-  --w-card: oklch(0.2 0.005 286);
-  --w-line: oklch(0.3 0.005 286);
-  --w-hover: oklch(0.25 0.006 286);
-  --w-muted: oklch(0.7 0.012 286);
-  --w-brand-ink: oklch(0.76 0.06 35);
+  --bg: #110f0d;
+  --surface: #1a1816;
+  --ink: #f2f2ef;
+  --muted: #a9a49e;
+  --accent: #4a6761;
+  --accent-deep: #3a524d;
+  --accent-text: #95c2b8;
+  --highlight-text: #e2a989;
+  --field-1: #121a18;
+  --field-2: #1c2a27;
+  --field-3: #2b423e;
+  --field-4: #4a6761;
+  --w-bg: oklch(0.17 0.005 60);
+  --w-side: oklch(0.2 0.006 60);
+  --w-card: oklch(0.21 0.006 60);
+  --w-line: oklch(0.3 0.006 60);
+  --w-hover: oklch(0.3 0.02 180);
+  --w-muted: oklch(0.72 0.01 70);
+  --w-brand: oklch(0.72 0.045 180);
+  --w-brand-ink: oklch(0.78 0.05 180);
   --w-add: #173323;
   --w-add-ink: #8fd6a7;
   --w-del: #3a1d1a;
@@ -173,8 +179,10 @@ p { text-wrap: pretty; }
   height: 80px;
   font-size: var(--step-small);
 }
-.wordmark { white-space: nowrap; display: inline-flex; align-items: center; gap: 10px; font-weight: 600; font-size: var(--step-body); letter-spacing: -0.01em; text-decoration: none; }
+.wordmark { white-space: nowrap; display: inline-flex; align-items: center; gap: 10px; font-weight: 300; font-size: var(--step-body); letter-spacing: -0.01em; text-decoration: none; }
 .wordmark img { border-radius: 7px; }
+.wordmark-strong { font-weight: 500; color: var(--accent-text); }
+.accent-word { font-family: var(--w-serif); font-style: italic; font-weight: 400; color: var(--highlight-text); }
 .bar nav { display: flex; gap: 28px; margin-left: auto; }
 .bar nav a { text-decoration: none; transition: color 160ms var(--ease); }
 .bar nav a:hover, .bar nav a[aria-current='page'] { color: var(--accent-text); }
