@@ -1,4 +1,4 @@
-// Brain Notes — site. Entrances on scroll and the working pieces of the app on the home page.
+// Mind Clean — site. Entrances on scroll and the working pieces of the app on the home page.
 document.documentElement.classList.add('js');
 
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -421,8 +421,8 @@ function wireLicense() {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const email = form.elements.email.value.trim();
-    const subject = encodeURIComponent('Brain Notes: licença');
-    const body = encodeURIComponent(`Olá, quero uma licença do Brain Notes.\n\nMeu e-mail: ${email}\n`);
+    const subject = encodeURIComponent('Mind Clean: licença');
+    const body = encodeURIComponent(`Olá, quero uma licença do Mind Clean.\n\nMeu e-mail: ${email}\n`);
     window.location.href = `mailto:bruno.dias.donnici@gmail.com?subject=${subject}&body=${body}`;
   });
 }
